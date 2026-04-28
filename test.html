@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazrgan System - User Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #2c3e50 !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 40px 0;
+            margin: 20px 0;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .download-btn {
+            background: white;
+            color: #27ae60;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 40px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            color: #1e8449;
+        }
+
+        .download-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+
+        .guide-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .guide-card h3 i {
+            color: #3498db;
+            font-size: 1.5rem;
+        }
+
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tip-box i {
+            color: #28a745;
+            margin-right: 10px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box i {
+            color: #856404;
+            margin-right: 10px;
+        }
+
+        .money-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #27ae60;
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .sidebar-menu {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: all 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .access-options {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .access-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .access-option:hover {
+            border-color: #3498db;
+            background: #e3f2fd;
+        }
+
+        .access-option.recommended {
+            border-color: #27ae60;
+            background: #e8f5e8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .sidebar-menu {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+
+            .download-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-cube me-2"></i>
+                Bazrgan User Guide
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1><i class="fas fa-book-open me-3"></i>How to Use Your Business System</h1>
+            <p>Simple guide to manage your business with Bazrgan – Xomali Production</p>
+            <a href="#download-app" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-download me-2"></i>Download App
+            </a>
+            <a href="#getting-started" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-play me-2"></i>Start Learning
+            </a>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <div class="container">
+        <section id="download-app" class="download-section">
+            <div class="container">
+                <div class="download-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h2><i class="fas fa-download me-2"></i>Download Bazrgan App</h2>
+                <p class="lead">Get the full power of Bazrgan System on your device!</p>
+                <p>Access your business data anywhere, anytime with our desktop and mobile application.</p>
+                
+                <a href="https://app.bazrgan.com/bazrganapp/" class="download-btn" target="_blank">
+                    <i class="fas fa-download me-2"></i>Download Application
+                </a>
+                
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="text-center text-white">
+                            <i class="fas fa-desktop fa-2x mb-2"></i>
+                            <h6>Desktop App</h6>
+                            <p>Full featured application for Windows, Mac & Linux</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center text-white">
+                            <i class="fas fa-wifi fa-2x mb-2"></i>
+                            <h6>Works Offline</h6>
+                            <p>Continue working even without internet connection</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center text-white">
+                            <i class="fas fa-sync-alt fa-2x mb-2"></i>
+                            <h6>Auto Sync</h6>
+                            <p>Your data syncs automatically when connected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Access Options -->
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar-menu">
+                        <h6><i class="fas fa-list me-2"></i>Quick Navigation</h6>
+                        <a href="#download-app">Download App</a>
+                        <a href="#getting-started" class="active">Getting Started</a>
+                        <a href="#dashboard-overview">Understanding Dashboard</a>
+                        <a href="#daily-tasks">Daily Tasks</a>
+                        <a href="#reports">Reading Reports</a>
+                        <a href="#troubleshooting">Common Problems</a>
+                        <a href="#tips">Helpful Tips</a>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="col-lg-9">
+                    <!-- Getting Started -->
+                    <section id="getting-started" class="guide-card">
+                        <h3><i class="fas fa-rocket"></i>Getting Started</h3>
+                        
+                        <div class="highlight-box">
+                            <h5><i class="fas fa-info-circle me-2"></i>What is Bazrgan System?</h5>
+                            <p class="mb-0">This system helps you manage your business by tracking money coming in (sales), money going out (expenses), and showing you how much profit you're making. Think of it as your business calculator and record keeper.</p>
+                        </div>
+
+                        <h5>First Time Setup (5 minutes)</h5>
+                        
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div>
+                                <strong>Download & Install (Recommended)</strong>
+                                <p>Visit <a href="https://app.bazrgan.com/bazrganapp/" target="_blank">https://app.bazrgan.com/bazrganapp/</a> to download the application. Install it on your computer for the best experience. </p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div>
+                                <strong>Login to Your System</strong>
+                                <p>Open the installed application and go to your system. Use the username and password given to you by your system administrator.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div>
+                                <strong>Check Your Dashboard</strong>
+                                <p>After login, you'll see the main page called "Dashboard". This shows you a summary of your business performance.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div>
+                                <strong>Look at the Left Menu</strong>
+                                <p>On the left side, you'll see a menu with options like Sales, Purchases, Items, Expenses. These are the tools you'll use every day.</p>
+                            </div>
+                        </div>
+
+                        <div class="tip-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Tip:</strong> Start by just looking around. You can't break anything by clicking and exploring! The desktop app is faster and works even when your internet is slow.
+                        </div>
+                    </section>
+
+                    <!-- Dashboard Overview -->
+                    <section id="dashboard-overview" class="guide-card">
+                        <h3><i class="fas fa-tachometer-alt"></i>Understanding Your Dashboard</h3>
+                        
+                        <p>Your dashboard shows 4 main boxes that tell you about your business health:</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h5>Income Statement</h5>
+                                    <p>Shows if you're making money or losing money</p>
+                                    <div class="money-display">
+                                        Net Income: 66,326 IQD
+                                    </div>
+                                    <small>This means you made 66,326 dinars profit!</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-piggy-bank"></i>
+                                    <h5>Safe (Your Cash)</h5>
+                                    <p>How much cash you have right now</p>
+                                    <div class="money-display">
+                                        Available: 9,013,426 IQD
+                                    </div>
+                                    <small>This is your available money</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <h5>Cash Flow</h5>
+                                    <p>Money coming in and going out</p>
+                                    <div class="money-display">
+                                        Total Flow: 6,387,826 IQD
+                                    </div>
+                                    <small>Overall money movement</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <h5>Net Worth</h5>
+                                    <p>Total value of your business</p>
+                                    <div class="money-display">
+                                        Worth: 7,890,552 IQD
+                                    </div>
+                                    <small>What your business is worth</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-box">
+                            <i class="fas fa-calendar-alt"></i>
+                            <strong>Time Filters:</strong> You can change the time period by clicking Day, Week, Month, or Year buttons to see different time ranges.
+                        </div>
+                    </section>
+
+                    <!-- Daily Tasks -->
+                    <section id="daily-tasks" class="guide-card">
+                        <h3><i class="fas fa-tasks"></i>Daily Tasks - What to Do Every Day</h3>
+
+                        <h5><i class="fas fa-sunrise me-2"></i>Morning (5 minutes)</h5>
+                        <ul>
+                            <li>Open your Bazrgan app </li>
+                            <li>Check your dashboard to see yesterday's results</li>
+                            <li>Look at your Safe to see how much cash you have</li>
+                            <li>Check if there are any new orders to process</li>
+                        </ul>
+
+                        <h5><i class="fas fa-sun me-2"></i>During the Day</h5>
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div>
+                                <strong>Record Every Sale</strong>
+                                <p>When you sell something, go to "Sales" in the left menu and add the sale details. This keeps track of your income.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div>
+                                <strong>Record Expenses</strong>
+                                <p>When you spend money (electricity, rent, supplies), go to "Expenses" and record it. This helps you see where money goes.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div>
+                                <strong>Update Inventory</strong>
+                                <p>If you buy new products, go to "Purchases" and record them. If you sell products, the system automatically reduces your stock.</p>
+                            </div>
+                        </div>
+
+                        <h5><i class="fas fa-moon me-2"></i>End of Day (10 minutes)</h5>
+                        <ul>
+                            <li>Check your dashboard to see today's profit</li>
+                            <li>Make sure all sales and expenses were recorded</li>
+                            <li>Look at tomorrow's schedule if you have orders</li>
+                            <li>If using desktop app, let it sync with the server</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>Important:</strong> Record transactions as soon as they happen. Don't wait until end of day - you might forget! With the desktop app, your data is saved locally and will sync when you're online.
+                        </div>
+                    </section>
+
+                    <!-- Reading Reports -->
+                    <section id="reports" class="guide-card">
+                        <h3><i class="fas fa-chart-bar"></i>Understanding Your Reports</h3>
+
+                        <h5>What the Numbers Mean</h5>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6><i class="fas fa-arrow-up text-success me-2"></i>Green Numbers (Good)</h6>
+                                <ul>
+                                    <li><strong>Sales:</strong> Money you earned</li>
+                                    <li><strong>Net Income:</strong> Your profit</li>
+                                    <li><strong>Cash:</strong> Money you have</li>
+                                    <li><strong>Customer Payments:</strong> People paying you</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h6><i class="fas fa-arrow-down text-danger me-2"></i>Red Numbers (Costs)</h6>
+                                <ul>
+                                    <li><strong>Expenses:</strong> Money you spent</li>
+                                    <li><strong>Purchases:</strong> Products you bought</li>
+                                    <li><strong>Supplier Payments:</strong> Money you owe suppliers</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h5><i class="fas fa-question-circle me-2"></i>Simple Business Health Check</h5>
+                            <ul class="mb-0">
+                                <li><strong>Profitable Business:</strong> Net Income is positive (green number)</li>
+                                <li><strong>Good Cash Flow:</strong> Safe amount is increasing over time</li>
+                                <li><strong>Healthy Growth:</strong> Sales are higher than last month</li>
+                            </ul>
+                        </div>
+
+                        <h5>Weekly Review (15 minutes every Friday)</h5>
+                        <ol>
+                            <li>Open your Bazrgan app </li>
+                            <li>Change dashboard filter to "Week"</li>
+                            <li>Check if Net Income is positive</li>
+                            <li>Compare with last week - are you improving?</li>
+                            <li>Look at expenses - any unexpected costs?</li>
+                            <li>Plan for next week based on the numbers</li>
+                        </ol>
+                    </section>
+
+                    <!-- Troubleshooting -->
+                    <section id="troubleshooting" class="guide-card">
+                        <h3><i class="fas fa-tools"></i>Common Problems & Solutions</h3>
+
+                        <div class="accordion" id="troubleshootingAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#problem1">
+                                        Problem: "No data found" message
+                                    </button>
+                                </h2>
+                                <div id="problem1" class="accordion-collapse collapse show" data-bs-parent="#troubleshootingAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Why this happens:</strong> You haven't recorded any transactions for the selected time period.
+                                        <br><br>
+                                        <strong>How to fix:</strong>
+                                        <ol>
+                                            <li>Change the time filter (try "All" instead of "Day")</li>
+                                            <li>Make sure you've been recording your sales and expenses</li>
+                                            <li>Check if you're looking at the right section</li>
+                                            <li>If using desktop app, ensure it has synced recently</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#problem2">
+                                        Problem: Numbers don't look right
+                                    </button>
+                                </h2>
+                                <div id="problem2" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Common causes:</strong>
+                                        <ul>
+                                            <li>Forgot to record some transactions</li>
+                                            <li>Entered wrong amounts</li>
+                                            <li>Looking at wrong time period</li>
+                                            <li>Data hasn't synced yet (desktop app)</li>
+                                        </ul>
+                                        <strong>What to do:</strong>
+                                        <ol>
+                                            <li>Double-check your recent entries</li>
+                                            <li>Compare with your physical records</li>
+                                            <li>Check sync status if using desktop app</li>
+                                            <li>Contact support if still confused</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#problem3">
+                                        Problem: Can't access the system
+                                    </button>
+                                </h2>
+                                <div id="problem3" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Desktop app issues:</strong>
+                                        <ul>
+                                            <li>Try restarting the application</li>
+                                            <li>Check your internet connection</li>
+                                            <li>Contact IT support for login help</li>
+                                        </ul>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-box mt-3">
+                            <i class="fas fa-phone"></i>
+                            <strong>Need Help?</strong> Don't hesitate to call support. It's better to ask than to make mistakes with your business data!
+                        </div>
+                    </section>
+
+                    <!-- Tips -->
+                    <section id="tips" class="guide-card">
+                        <h3><i class="fas fa-lightbulb"></i>Helpful Tips for Success</h3>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-check-circle text-success me-2"></i>Best Practices</h5>
+                                <ul>
+                                    <li>Use the desktop app for better performance</li>
+                                    <li>Keep the application open during business hours</li>
+                                    <li>Record transactions immediately</li>
+                                    <li>Check your dashboard every morning</li>
+                                    <li>Review weekly reports every Friday</li>
+                                    <li>Keep your device updated</li>
+                                    <li>Have reliable internet for syncing</li>
+                                    <li>Know your support contact</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-times-circle text-danger me-2"></i>Things to Avoid</h5>
+                                <ul>
+                                    <li>Don't close the app without letting it sync</li>
+                                    <li>Don't delay entering data</li>
+                                    <li>Don't ignore negative numbers</li>
+                                    <li>Don't forget to categorize expenses</li>
+                                    <li>Don't change system settings</li>
+                                    <li>Don't share your login details</li>
+                                    <li>Don't work offline for too long without syncing</li>
+                                    <li>Don't use multiple devices simultaneously</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h5><i class="fas fa-trophy me-2"></i>Monthly Success Routine</h5>
+                            <p><strong>End of every month (30 minutes):</strong></p>
+                            <ol class="mb-0">
+                                <li>Open your Bazrgan app</li>
+                                <li>Set dashboard to "Month" view</li>
+                                <li>Write down your Net Income</li>
+                                <li>Compare with last month</li>
+                                <li>Identify your biggest expenses</li>
+                                <li>Set goals for next month</li>
+                                <li>Celebrate if you made profit! 🎉</li>
+                            </ol>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-clock fa-2x text-primary mb-2"></i>
+                                    <h6>Save Time</h6>
+                                    <p>Desktop app loads faster and works offline when needed</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-chart-line fa-2x text-success mb-2"></i>
+                                    <h6>Make More Money</h6>
+                                    <p>Track expenses to see where you can save money and increase profit</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="fas fa-shield-alt fa-2x text-info mb-2"></i>
+                                    <h6>Avoid Problems</h6>
+                                    <p>Your data is always safe with automatic backups and sync</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- App Benefits -->
+                    <section class="guide-card">
+                        <h3><i class="fas fa-star"></i>Why Use the Desktop App?</h3>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-bolt"></i>
+                                    <h5>Faster Performance</h5>
+                                    <p>Loads instantly and responds quickly to your actions</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-wifi-off"></i>
+                                    <h5>Works Offline</h5>
+                                    <p>Continue working even when internet is slow or disconnected</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <h5>Auto Sync</h5>
+                                    <p>Your data automatically syncs when internet is available</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <i class="fas fa-lock"></i>
+                                    <h5>More Secure</h5>
+                                    <p>Your data is stored locally and encrypted for better security</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-box">
+                            <i class="fas fa-download"></i>
+                            <strong>Ready to Download?</strong> Visit <a href="https://app.bazrgan.com/bazrganapp/" target="_blank">https://app.bazrgan.com/bazrganapp/</a> to get the latest version of Bazrgan application.
+                        </div>
+                    </section>
+
+                    <!-- Contact & Support -->
+                    <section class="guide-card">
+                        <h3><i class="fas fa-headset"></i>Need Help?</h3>
+                        
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <div class="feature-box">
+                                    <i class="fas fa-phone"></i>
+                                    <h6>Call Support</h6>
+                                    <p>For urgent problems</p>
+                                    <strong>📞 +964-XXX-XXX-XXX</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="feature-box">
+                                    <i class="fas fa-envelope"></i>
+                                    <h6>Email Support</h6>
+                                    <p>For detailed questions</p>
+                                    <strong>✉️ support@bazrgan.com</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="feature-box">
+                                    <i class="fas fa-clock"></i>
+                                    <h6>Support Hours</h6>
+                                    <p>We're here to help</p>
+                                    <strong>🕘 9 AM - 5 PM</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h5><i class="fas fa-question-circle me-2"></i>Common Support Questions</h5>
+                            <ul class="mb-0">
+                                <li><strong>Installation Help:</strong> Having trouble downloading or installing the app?</li>
+                                <li><strong>Login Issues:</strong> Can't remember your username or password?</li>
+                                <li><strong>Data Sync:</strong> Need help with syncing your data between devices?</li>
+                                <li><strong>Training:</strong> Want additional training on using specific features?</li>
+                                <li><strong>Technical Issues:</strong> App crashes or performance problems?</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <i class="fas fa-heart"></i>
+                            <strong>Remember:</strong> This system is here to help your business grow. Whether you use the desktop app, don't be afraid to explore and ask questions!
+                        </div>
+                    </section>
+
+                    <!-- Quick Start Checklist -->
+                    <section class="guide-card">
+                        <h3><i class="fas fa-clipboard-check"></i>Quick Start Checklist</h3>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-download me-2"></i>Setup Checklist</h5>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="check1">
+                                    <label class="form-check-label" for="check1">
+                                        Download app from <a href="https://app.bazrgan.com/bazrganapp/" target="_blank">bazrgan.com/bazrganapp</a>
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="check2">
+                                    <label class="form-check-label" for="check2">
+                                        Install the application on your computer
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="check3">
+                                    <label class="form-check-label" for="check3">
+                                        Login with your credentials
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="check4">
+                                    <label class="form-check-label" for="check4">
+                                        Explore the dashboard and left menu
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="check5">
+                                    <label class="form-check-label" for="check5">
+                                        Test recording a sample transaction
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-calendar-day me-2"></i>Daily Use Checklist</h5>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="daily1">
+                                    <label class="form-check-label" for="daily1">
+                                        Open Bazrgan desktop application in the morning
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="daily2">
+                                    <label class="form-check-label" for="daily2">
+                                        Check dashboard for yesterday's results
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="daily3">
+                                    <label class="form-check-label" for="daily3">
+                                        Record all sales as they happen
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="daily4">
+                                    <label class="form-check-label" for="daily4">
+                                        Record all expenses and purchases
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="daily5">
+                                    <label class="form-check-label" for="daily5">
+                                        Check end-of-day profit summary
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="https://app.bazrgan.com/bazrganapp/" class="btn btn-success btn-lg" target="_blank">
+                                <i class="fas fa-download me-2"></i>Start by Downloading the App
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-cube me-2"></i>Bazrgan System</h5>
+                    <p>Xomali Production - Business Management Made Simple</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h6>Download Links</h6>
+                    <a href="https://app.bazrgan.com/bazrganapp/" class="btn btn-outline-light btn-sm" target="_blank">
+                        <i class="fas fa-download me-1"></i>Desktop App
+                    </a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <small>&copy; 2024 Xomali Production. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar-menu a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Checklist functionality
+        document.querySelectorAll('.form-check-input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.checked) {
+                    label.style.textDecoration = 'line-through';
+                    label.style.opacity = '0.6';
+                } else {
+                    label.style.textDecoration = 'none';
+                    label.style.opacity = '1';
+                }
+            });
+        });
+
+        // Track download clicks
+        document.querySelectorAll('a[href*="bazrganapp"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Download link clicked');
+                // You can add analytics tracking here
+            });
+        });
+    </script>
+</body>
+</html>

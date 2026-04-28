@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Shad Arf ▪️ Backend Developer (Laravel, API, DevOps) ▪️ Erbil – Turaq" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shad Arf • Backend Developer</title>
+  <link rel="icon" type="image/png" href="shad.jpg" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #3b82f6;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --info: #06b6d4;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --muted: #6b7280;
+      --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+      --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      
+      /* Background variables for theming */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --border-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Dark Mode Variables */
+    [data-theme="dark"] {
+      --primary: #60a5fa;
+      --secondary: #3b82f6;
+      --dark: #f9fafb;
+      --light: #111827;
+      --muted: #9ca3af;
+      --gradient-bg: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      
+      --bg-primary: #1f2937;
+      --bg-secondary: #111827;
+      --bg-tertiary: #0f172a;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --border-color: rgba(99, 102, 241, 0.2);
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    a:hover {
+      color: var(--secondary);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: var(--bg-primary) !important;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-lg);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      position: fixed;
+    }
+    .navbar.scrolled {
+      background: var(--bg-primary) !important;
+      box-shadow: var(--shadow-xl);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--primary) !important;
+      position: relative;
+    }
+    .navbar-brand::before {
+      content: '👨‍💻';
+      margin-right: 8px;
+      font-size: 1.5rem;
+    }
+    .nav-link {
+      color: var(--text-primary) !important;
+      font-weight: 500;
+      margin: 0 0.75rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 1rem !important;
+      border-radius: 8px;
+    }
+    .nav-link:hover {
+      color: var(--secondary) !important;
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
+    }
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    .nav-link:hover::before {
+      width: 80%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: var(--gradient-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(59, 130, 246, 0.05) 0%, rgba(30, 58, 138, 0.05) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      opacity: 0.05;
+      top: -50%;
+      left: -50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 10;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .hero-img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-xl);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 5;
+    }
+    .hero-img:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-title h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-secondary);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -15px;
+      border-radius: 2px;
+    }
+    .section-title h2::before {
+      content: "";
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -8px;
+      border-radius: 2px;
+    }
+    .section-title p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* About Section */
+    #about {
+      padding: 5rem 0;
+      background: var(--bg-primary);
+      position: relative;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%233b82f6" fill-opacity="0.03"><circle cx="30" cy="30" r="4"/></g></svg>') repeat;
+      opacity: 0.5;
+    }
+    .about-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .about-content h2 {
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 2.5rem;
+    }
+    .about-content p {
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+    .testimonial {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 3rem auto;
+      max-width: 700px;
+      background: var(--bg-secondary);
+      border-radius: 15px;
+      padding: 2rem;
+      position: relative;
+      border-left: 4px solid var(--secondary);
+    }
+    .testimonial::before {
+      content: '"';
+      font-size: 4rem;
+      color: var(--secondary);
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      opacity: 0.3;
+    }
+
+    /* Language Bars */
+    .language-row {
+      margin-top: 1rem;
+    }
+    .language-row .label {
+      font-weight: 500;
+    }
+    .progress {
+      height: 25px;
+      border-radius: 15px;
+      overflow: visible;
+      background-color: #e9ecef;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .progress-bar {
+      border-radius: 15px;
+      transition: width 1s ease-in-out;
+      position: relative;
+    }
+    .skill-percent {
+      position: absolute;
+      right: 10px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .bg-success {
+      background-color: #28a745 !important;
+    }
+    .bg-info {
+      background-color: #17a2b8 !important;
+    }
+
+    /* Projects Section */
+    #work {
+      padding: 5rem 0;
+      background: var(--bg-secondary);
+      position: relative;
+    }
+    .project-card {
+      background: var(--bg-primary);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-secondary);
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--secondary);
+    }
+    .project-card img {
+      border-radius: 15px;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+    .project-card:hover img {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+    .project-info h3 {
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .project-meta span.badge {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.75rem;
+    }
+    .project-meta p {
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .project-card p.description {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    /* Skills Section */
+    #skills {
+      padding: 5rem 0;
+      background: var(--bg-primary);
+    }
+    .skill-card {
+      background: var(--bg-primary);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      height: 100%;
+    }
+    .skill-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: var(--shadow-xl);
+      background: var(--bg-primary);
+      border-color: var(--secondary);
+    }
+    .skill-icon {
+      font-size: 3.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover .skill-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .skill-card h5 {
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    .skill-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Experience / Timeline */
+    #experience {
+      padding: 5rem 0;
+      background: var(--bg-secondary);
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      padding-left: 30px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--primary);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 2rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -3px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background: var(--secondary);
+      border-radius: 50%;
+    }
+    .timeline-date {
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .timeline-item h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+    .timeline-item h4 {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .timeline-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .timeline-item ul li {
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Education Section */
+    #education {
+      padding: 5rem 0;
+      background: var(--bg-primary);
+    }
+    .education-card {
+      background: var(--bg-primary);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      padding: 3rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--secondary);
+    }
+    .education-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .education-card p {
+      color: var(--text-secondary);
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 5rem 0;
+      background: var(--bg-secondary);
+    }
+    .contact-info-card {
+      background: var(--bg-primary);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    .contact-info-card:hover {
+      background: var(--bg-primary);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--secondary);
+    }
+    .contact-info-card h5 {
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .contact-info-card i {
+      transition: transform 0.3s ease;
+    }
+    .contact-info-card:hover i {
+      transform: scale(1.1);
+    }
+    .contact-form {
+      max-width: 700px;
+      margin: auto;
+      background: var(--bg-primary);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border-color);
+    }
+    .contact-form .form-control {
+      height: 55px;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      border: 2px solid var(--border-color);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    .contact-form .form-control:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+      transform: translateY(-2px);
+      background: var(--bg-secondary);
+    }
+    .contact-form textarea.form-control {
+      height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+    }
+    .social-links a {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      margin: 0 0.75rem;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      color: var(--secondary);
+    }
+
+    /* Button Animations */
+    .btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      z-index: 10;
+      pointer-events: auto;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn:hover::before {
+      left: 100%;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .hero-img {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    /* Pulse Animation for Icons */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .skill-icon {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.75rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .contact-form {
+        padding: 2rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 0 60px;
+      }
+      .hero h1 {
+        font-size: 2.25rem !important;
+      }
+      .hero p {
+        font-size: 1rem !important;
+      }
+      .navbar-nav {
+        background: var(--bg-primary);
+        border-radius: 10px;
+        margin-top: 1rem;
+        box-shadow: var(--shadow-lg);
+      }
+      .project-card {
+        margin-bottom: 2rem !important;
+        padding: 1.5rem;
+      }
+      .timeline {
+        padding-left: 20px;
+      }
+      .timeline::before {
+        left: 8px;
+      }
+      .timeline-item {
+        padding-left: 1.5rem;
+      }
+      .contact-form {
+        padding: 1.5rem;
+      }
+      .contact-info-card {
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        margin-bottom: 3rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .section-title h2 {
+        font-size: 1.8rem !important;
+      }
+      .skill-card {
+        padding: 1.5rem !important;
+      }
+      .progress {
+        height: 20px !important;
+      }
+      .hero h1 {
+        font-size: 2rem !important;
+      }
+      .education-card, .contact-form {
+        padding: 1.5rem;
+      }
+      .project-card {
+        padding: 1rem;
+      }
+    }
+    
+    /* Theme Toggle Button */
+    .theme-toggle {
+      border: 2px solid var(--border-color) !important;
+      background: var(--bg-primary) !important;
+      color: var(--text-primary) !important;
+      border-radius: 50px !important;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      background: var(--secondary) !important;
+      color: white !important;
+      border-color: var(--secondary) !important;
+      transform: scale(1.1);
+    }
+    
+    .theme-toggle i {
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .theme-toggle:hover i {
+      transform: rotate(20deg);
+    }
+    
+    /* Hero Buttons Fix */
+    .hero .btn {
+      position: relative;
+      z-index: 20;
+      pointer-events: auto;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .hero .d-flex {
+      position: relative;
+      z-index: 15;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">SHAD ARF</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center align-items-center">
+          <li class="nav-item mx-2"><a class="nav-link" href="#home"><i class="fas fa-home me-1"></i>Home</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#about"><i class="fas fa-user me-1"></i>About</a></li>
+        
+          <li class="nav-item mx-2"><a class="nav-link" href="#education"><i class="fas fa-graduation-cap me-1"></i>Education</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#work"><i class="fas fa-code me-1"></i>Projects</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#courses"><i class="fas fa-certificate me-1"></i>Courses</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#skills"><i class="fas fa-tools me-1"></i>Skills</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#experience"><i class="fas fa-briefcase me-1"></i>Experience</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item mx-2">
+            <button class="btn btn-outline-secondary btn-sm theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+              <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-6 text-center text-lg-start reveal">
+            <h1>Shad Arf</h1>
+            <h2 class="fw-bold mb-3 typed-text" style="color: var(--accent); min-height: 40px; display: block;"></h2>
+            <script>
+            const roles = ["Backend Developer", "Laravel Developer", "Software Developer"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            const typedText = document.querySelector('.typed-text');
+            
+            function typeText() {
+              const currentRole = roles[roleIndex];
+              typedText.textContent = currentRole.substring(0, charIndex + 1);
+              charIndex++;
+              
+              if (charIndex < currentRole.length) {
+                setTimeout(typeText, 100);
+              } else {
+                setTimeout(eraseText, 2000);
+              }
+            }
+
+            function eraseText() {
+              const currentRole = roles[roleIndex];
+              typedText.textContent = currentRole.substring(0, charIndex);
+              charIndex--;
+              
+              if (charIndex >= 0) {
+                setTimeout(eraseText, 50);
+              } else {
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeText, 500);
+              }
+            }
+
+            typeText();
+            </script>
+          <p class="lead mb-4">
+            PHP & Laravel Expert | JavaScript & Vue.js | VPS & DevOps 
+          </p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+            <a
+              href="Shad_arf_cv.pdf"
+              download
+              class="btn btn-primary btn-lg px-4 py-3"
+            >
+              <i class="fas fa-download me-2"></i>Download CV
+            </a>
+            <a href="#work" class="btn btn-outline-primary btn-lg px-4 py-3">
+              <i class="fas fa-briefcase me-2"></i>View Projects
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 text-center reveal">
+          <img
+            src="https://shadarf.dev/shad.jpg"
+            alt="Shad Arf"
+            class="img-fluid rounded-3 hero-img"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <div class="about-content reveal">
+        <h2><i class="fas fa-user-circle me-3" style="color: var(--secondary);"></i>About Me</h2>
+        <p>
+          I’m <strong>Shad Arf</strong>, a dedicated backend web developer specializing in Laravel and API architecture. With a Bachelor’s degree in Computer Science from Soran
+          University (2021–2025), I’ve honed my skills in PHP, database design, and server optimization. During my internship at Inforr LTD, I deepened my knowledge in DevOps, Laravel, and Vue.js. Outside of coding, I enjoy AI exploration, server optimization challenges, and a good game of chess.
+        </p>
+        <div class="testimonial">
+          <p>"Shad, you can find a job very easily, and I'm not worried about your employment status."</p>
+          <p><strong>— Sherwan Qurtas</strong> (University President, Soran University)</p>
+        </div>
+        <div class="mt-4">
+          <h4><i class="fas fa-heart me-2" style="color: var(--danger);"></i>Interests &amp; Hobbies</h4>
+          <p>Technology ▪️ AI Exploration ▪️ Server Optimization ▪️ Chess ▪️ Web Development</p>
+        </div>
+
+        <div class="container my-5">
+          <h3 class="mb-4 text-center">
+            <i class="fas fa-language me-2" style="color: var(--info);"></i>Languages
+          </h3>
+          
+          <!-- Kurdish -->
+          <div class="row align-items-center language-row mb-3">
+            <div class="col-12 col-md-2 mb-2 mb-md-0">
+              <span class="label d-block text-center text-md-start">
+          <strong>Kurdish (Native)</strong>
+              </span>
+            </div>
+            <div class="col-12 col-md-10">
+              <div class="progress" style="height: 25px;">
+          <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 100%"
+            aria-valuenow="100"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <span class="skill-percent">100%</span>
+          </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- English -->
+          <div class="row align-items-center language-row">
+            <div class="col-12 col-md-2 mb-2 mb-md-0">
+              <span class="label d-block text-center text-md-start">
+          <strong>English (Intermediate)</strong>
+              </span>
+            </div>
+            <div class="col-12 col-md-10">
+              <div class="progress" style="height: 25px;">
+          <div
+            class="progress-bar bg-info"
+            role="progressbar"
+            style="width: 70%"
+            aria-valuenow="70"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <span class="skill-percent">70%</span>
+          </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2><i class="fas fa-university me-3" style="color: var(--secondary);"></i>Education</h2>
+        <p>My academic background</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 reveal">
+          <div class="education-card">
+            <h3>Bachelor of Computer Science</h3>
+            <p><strong>Soran University</strong> (2021 – 2025)</p>
+            <p>Graduated: July 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Projects Section -->
+  <section id="work">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>
+          <i class="fas fa-laptop-code me-3" style="color: var(--secondary);"></i>
+          Featured Projects
+        </h2>
+        <p>A selection of my key development projects</p>
+      </div>
+
+      <!-- Project 1: Smart Distribution Management System -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <!-- Optional image or screenshot here -->
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>Smart Distribution Management System</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-primary">Laravel</span>
+                <span class="badge bg-secondary">PHPUnit</span>
+                <span class="badge bg-success">Vue.js</span>
+                <span class="badge bg-info">API</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Full-Stack</p>
+                <p><strong>Team Size:</strong> Solo</p>
+                <p><strong>Duration:</strong> 9 months (Started August 1, 2024)</p>
+                <p><strong>Type:</strong> Academic Project</p>
+              </div>
+              <p class="description">
+                Developed a fully normalized and scalable multi‑store book distribution system.
+                Designed a 28‑table schema for relational integrity, built secure RESTful APIs
+                with Laravel (CRUD + role‑based access), and crafted a Vue.js front end with
+                dynamic forms and validations.
+              </p>
+              <ul class="mb-0">
+                <li>Backend & database completed in 3 months; 28‑table schema for efficient queries</li>
+                <li>100% PHPUnit coverage: 350+ tests for logic, authorization, and edge cases</li>
+                <li>Integrated FIB online payments with dynamic transaction &amp; refund handling</li>
+                <li>Role‑based access: Admin, Manager, Member, Customer</li>
+              </ul>
+              <div class="d-flex gap-3 mt-3">
+                <a href="#" class="btn btn-primary" target="_blank">Details Coming Soon</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Uber Post Delivery -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center flex-md-row-reverse">
+          <div class="col-md-6">
+            <!-- Optional image -->
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>Uber Post Delivery</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-primary">Laravel</span>
+                <span class="badge bg-info">Flutter</span>
+                <span class="badge bg-success">API</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Backend Developer</p>
+                <p><strong>Team Size:</strong> 2 Members</p>
+                <p><strong>Duration:</strong> 9 months (Started September 1, 2024)</p>
+                <p><strong>Type:</strong> Academic Project</p>
+              </div>
+              <p class="description">
+                A Flutter-based mobile app connecting users with drivers for package delivery.
+                Built Laravel APIs for real‑time requests, authentication, and order tracking.
+              </p>
+              <div class="d-flex gap-3">
+                <a href="https://github.com/shad-arf/uber_car" class="btn btn-primary" target="_blank">
+                  Open Source API
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: University Student Enrollment Management System -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <img src="reg.png" alt="Student Enrollment System" class="img-fluid" />
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>University Student Enrollment Management System</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-warning">JavaScript</span>
+                <span class="badge bg-primary">PHP</span>
+                <span class="badge bg-success">Bootstrap</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Reviewer & Full-Stack Developer</p>
+                <p><strong>Team Size:</strong> 4 Members</p>
+                <p><strong>Duration:</strong> 1 year (Started September 1, 2022)</p>
+                <p><strong>Type:</strong> Production Project</p>
+                <p><strong>Client:</strong> Soran University</p>
+              </div>
+              <p class="description">
+                Enhanced and maintained the student registration system for 2023–2024:
+                backend workflows, real‑time validations, and UI improvements.
+                Successfully registered over 1,500 students.
+              </p>
+              <div class="d-flex gap-3">
+                <a href="https://reg.soran.edu.iq" class="btn btn-outline-primary" target="_blank">
+                  Visit Live
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: The Soran University Career Development Center -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center flex-md-row-reverse">
+          <div class="col-md-6">
+            <img
+              src="https://unicdc.soran.edu.iq/admin/Componets/userimages/f444522554fc85804d3cad0d012982aa373e7721ccc2619d28949d29a2f61d6d.jpeg"
+              alt="CDC Portal"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>The Soran University Career Development Center</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-warning">JavaScript</span>
+                <span class="badge bg-primary">PHP</span>
+                <span class="badge bg-success">Bootstrap</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> PHP Developer</p>
+                <p><strong>Team Size:</strong> 6 Members</p>
+                <p><strong>Duration:</strong> 6 months (Started October 1, 2023)</p>
+                <p><strong>Type:</strong> Production Project</p>
+                <p><strong>Client:</strong> Soran University CDC</p>
+              </div>
+              <p class="description">
+                Online platform for CDC events: CRUD features, event management, and dynamic dashboards.
+                Collaborated with staff to translate needs into functional features.
+              </p>
+              <div class="d-flex gap-3">
+                <a href="https://unicdc.soran.edu.iq" class="btn btn-outline-primary" target="_blank">
+                  Visit Live
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: Chatbot -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <img src="chatbot.jpg" alt="Chatbot" class="img-fluid" />
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>Chatbot</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-warning">JavaScript</span>
+                <span class="badge bg-primary">PHP</span>
+                <span class="badge bg-success">Bootstrap</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Full-Stack Developer</p>
+                <p><strong>Team Size:</strong> Solo</p>
+                <p><strong>Duration:</strong> 6 months (Started February 1, 2023)</p>
+                <p><strong>Type:</strong> Personal Project</p>
+              </div>
+              <p class="description">
+                A PHP‑based chatbot for Soran University: real‑time messaging, authentication, and message history.
+                Presented at the University Showcase as my first major PHP project.
+              </p>
+              <div class="d-flex gap-3">
+                <a href="https://github.com/shad-arf/chat_bot" class="btn btn-primary" target="_blank">
+                  Open Source
+                </a>
+                <a href="https://chatbot.shadarf.dev" class="btn btn-outline-primary" target="_blank">
+                  Visit Live
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6: Pi Organization Portal -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center flex-md-row-reverse">
+          <div class="col-md-6">
+            <img src="pionline.png" alt="Pi Organization Portal" class="img-fluid" />
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>Pi Organization Portal</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-primary">Laravel</span>
+                <span class="badge bg-info">Blade</span>
+                <span class="badge bg-secondary">phpMyAdmin</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Full-Stack</p>
+                <p><strong>Team Size:</strong> Solo</p>
+                <p><strong>Duration:</strong> 1 year (Started September 1, 2023)</p>
+                <p><strong>Type:</strong> Startup Project</p>
+                <p><strong>Status:</strong> Defunct (Owned)</p>
+              </div>
+              <p class="description">
+                Designed and developed the official LMS &amp; content portal: course registration,
+                lecture uploads, and certificate generation. Integrated FastPay for payments,
+                managed roles for students/teachers/admins, and built an admin dashboard with
+                real‑time reporting.
+              </p>
+              <ul class="mb-0">
+                <li>16+ table schema enforcing relational integrity via foreign keys</li>
+                <li>Modules for course management, feedback, certificates, and teacher profiles</li>
+                <li>Admin tools for payment status (pending/approved) and operational oversight</li>
+              </ul>
+              <div class="d-flex gap-3 mt-3">
+                <a href="https://pionline.org" class="btn btn-outline-primary" target="_blank">
+                  View Live
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="courses" class="py-5" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2><i class="fas fa-award me-3" style="color: var(--secondary);"></i>Courses &amp; Certifications</h2>
+        <p>Laracasts tracks &plus; other self-learning milestones</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Course Card -->
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="skill-card h-100">
+            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-danger"></i>Laravel 8 From Scratch</h5>
+            <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
+            <p class="small text-muted">38 lessons • Completed 2023-07</p>
+            <p class="mb-0">Built a clone project while following along; cemented fundamentals of routing, Eloquent, queues, and tests.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="skill-card h-100">
+            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-danger"></i>Laravel API Master Class</h5>
+            <p class="small mb-2">Instructor: <strong>Jeremey McPeak</strong></p>
+            <p class="small text-muted">19 lessons • Completed 2024-07</p>
+            <p class="mb-0">Deep-dive into stateless auth, rate-limiting, API testing, and versioning; foundation for web applicaiton back-ends.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="skill-card h-100">
+            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-success"></i>Vue 3 From Scratch</h5>
+            <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
+            <p class="small text-muted">43 lessons • Completed 2024-08</p>
+            <p class="mb-0">Mastered reactivity, Composition API, Pinia state, and SPA routing.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="skill-card h-100">
+            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-primary"></i>Write Code That’s Easy to Maintain</h5>
+            <p class="small mb-2">Instructor: <strong>Katerina Trajchevska</strong></p>
+            <p class="small text-muted">14 lessons • Completed 2024-08</p>
+            <p class="mb-0">Learned SOLID principles, refactoring pattern.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="skill-card h-100">
+            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-warning"></i>Laravel Security Through Examples</h5>
+            <p class="small mb-2">Instructor: <strong>Stephen Rees-Carter</strong></p>
+            <p class="small text-muted">16 lessons • Completed 2024-8</p>
+            <p class="mb-0">Practiced XSS, CSRF, SQLi mitigation &amp; OAuth.</p>
+          </div>
+        </div>
+
+    <div class="col-12 col-md-6 col-lg-4 reveal">
+        <div class="skill-card h-100">
+          <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-danger"></i>Code Katas with PHPUnit</h5>
+          <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
+          <p class="small text-muted">9 mini-episodes • Completed 2024-09</p>
+          <p class="mb-0">Practice-driven TDD exercises using PHPUnit—each episode is a focused Kata to build workflow habits, refactoring skills, and test-first thinking.</p>
+        </div>
+      </div>
+
+
+        <!-- Add any future Udemy / Coursera / official certs here in similar cards -->
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2><i class="fas fa-cogs me-3" style="color: var(--secondary);"></i>Technical Expertise</h2>
+        <p>The tools and technologies I use to build efficient solutions</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-laravel skill-icon"></i>
+            <h5>Laravel</h5>
+            <p>Expert in backend architecture & API development</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-php skill-icon"></i>
+            <h5>PHP</h5>
+            <p>Strong foundation in server-side scripting</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-vuejs skill-icon"></i>
+            <h5>Vue.js</h5>
+            <p>Building reactive user interfaces</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-js skill-icon"></i>
+            <h5>JavaScript</h5>
+            <p>Frontend scripting and dynamic behavior</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fas fa-cogs skill-icon"></i>
+            <h5>C#</h5>
+            <p>Building robust Console applications</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-python skill-icon"></i>
+            <h5>Python</h5>
+            <p>Data analysis & machine learning basics</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-css3-alt skill-icon"></i>
+            <h5>Tailwind & Bootstrap</h5>
+            <p>Responsive design & utility-first frameworks</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fas fa-cloud skill-icon"></i>
+            <h5>Cloud & DevOps</h5>
+            <p>Contabo VPS, Cloudflare, server optimization</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-react skill-icon"></i>
+            <h5>React</h5>
+            <p>Building component-based UIs </p>
+          </div>
+        </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+  <div class="skill-card">
+    <i class="fab fa-ubuntu skill-icon"></i>
+    <h5>Ubuntu</h5>
+    <p>Linux distribution for servers and desktops</p>
+  </div>
+</div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fab fa-github skill-icon"></i>
+            <h5>Git & GitHub</h5>
+            <p>Version control & collaboration</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="fas fa-lock skill-icon"></i>
+            <h5>Security Best Practices</h5>
+            <p>CSRF protection, input validation, hardening</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2><i class="fas fa-route me-3" style="color: var(--secondary);"></i>Professional Journey</h2>
+        <p>My career path and key milestones</p>
+      </div>
+      <div class="timeline reveal">
+        <!-- Timeline Item: Current -->
+       
+      
+       <!-- Timeline Item: Jan 2024 – Mar 2024 -->
+        <div class="timeline-item">
+          <div class="timeline-date">jul 2024 – sep 2024</div>
+          <h3>Internship</h3>
+          <h4>Inforr LTD</h4>
+          <ul>
+            <li>✅ Studied Laravel, DevOps, Vue.js, and AI</li>
+            <li>✅ Created custom APIs and integrated them into projects</li>
+            <li>✅ Deployed sample applications on Contabo VPS</li>
+          </ul>
+        </div>
+      
+        <!-- Timeline Item: 2020 – 2024 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2020 – 2024</div>
+          <h3>CEO &amp; Web Developer</h3>
+          <h4>Pi Organization</h4>
+          <ul>
+            <li>✅ Led the startup, making key decisions</li>
+            <li>✅ Designed and built the official portal (Laravel, Blade)</li>
+            <li>✅ Managed content, user roles, and reporting modules</li>
+          </ul>
+        </div>
+      
+        <!-- Timeline Item: Jan 2024 – Apr 2024 -->
+        <div class="timeline-item">
+          <div class="timeline-date">Oct 2023 – Apr 2024</div>
+          <h3>Volunteer Developer</h3>
+          <h4>CDC Soran University</h4>
+          <ul>
+            <li>✅ Built and maintained CDC’s online platform</li>
+            <li>✅ Implemented new modules and feature enhancements</li>
+          </ul>
+        </div>
+
+        <!-- Timeline Item: Jan 2023 – Nov 2023 -->
+        <div class="timeline-item">
+          <div class="timeline-date">Aug 2023 – Oct 2023</div>
+          <h3>Volunteer Full-Stack Developer</h3>
+          <h4>Soran University</h4>
+          <ul>
+            <li>✅ Maintained and improved the production registration system</li>
+            <li>✅ Handled real-time data entry and reporting for 1,500+ students</li>
+          </ul>
+        </div>
+
+      
+
+       
+      </div>
+    </div>
+  </section>
+
+
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links mb-4">
+        <a href="https://linkedin.com/in/shad-arf" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/shad-arf" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="mb-0">&copy; 2025 Shad Arf. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Enhanced JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Intersection Observer for Reveal Animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              // Add stagger effect for skill cards
+              if (entry.target.classList.contains('skill-card')) {
+                const delay = Math.random() * 300;
+                setTimeout(() => {
+                  entry.target.style.opacity = '1';
+                  entry.target.style.transform = 'translateY(0)';
+                }, delay);
+              }
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+      // Smooth scroll with offset for fixed navbar
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          const offset = 80; // Account for fixed navbar
+          const targetPosition = target.offsetTop - offset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+          });
+        });
+      });
+
+      // Navbar scroll effect
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        
+        lastScrollTop = scrollTop;
+      });
+
+      // Add loading animation to skill cards
+      const skillCards = document.querySelectorAll('.skill-card');
+      if (skillCards.length > 0) {
+        requestAnimationFrame(() => {
+          skillCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 100 * index);
+          });
+        });
+      }
+
+      // Typing effect for hero subtitle
+      const subtitle = document.querySelector('.hero h2');
+      if (subtitle) {
+        const text = subtitle.textContent;
+        subtitle.textContent = '';
+        let i = 0;
+        const typeWriter = () => {
+          if (i < text.length) {
+            subtitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+          }
+        };
+        setTimeout(typeWriter, 1000);
+      }
+
+      // Progress bar animation
+      const progressBars = document.querySelectorAll('.progress-bar');
+      const animateProgressBars = () => {
+        progressBars.forEach(bar => {
+          const width = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => {
+            bar.style.width = width;
+          }, 500);
+        });
+      };
+      
+      // Trigger progress animation when about section is visible
+      const aboutSection = document.querySelector('#about');
+      const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateProgressBars();
+            aboutObserver.unobserve(entry.target);
+          }
+        });
+      });
+      
+      if (aboutSection) {
+        aboutObserver.observe(aboutSection);
+      }
+    });
+  </script>
+</body>
+</html>
