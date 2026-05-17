@@ -19,10 +19,9 @@
     rel="stylesheet"
   />
 
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   />
 
   <style>
@@ -120,11 +119,6 @@
       color: var(--primary) !important;
       position: relative;
     }
-    .navbar-brand::before {
-      content: '👨‍💻';
-      margin-right: 8px;
-      font-size: 1.5rem;
-    }
     .nav-link {
       color: var(--text-primary) !important;
       font-weight: 500;
@@ -152,6 +146,44 @@
     }
     .nav-link:hover::before {
       width: 80%;
+    }
+    .icon {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      vertical-align: -0.125em;
+      color: currentColor;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .icon.fill {
+      fill: currentColor;
+      stroke: none;
+    }
+    .icon.brand {
+      stroke-width: 1.6;
+    }
+    .icon-brand-stroke {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-brand-fill {
+      fill: currentColor;
+      stroke: none;
+    }
+    .svg-sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
     }
 
     /* Hero Section */
@@ -460,12 +492,13 @@
       border-color: var(--secondary);
     }
     .skill-icon {
+      width: auto;
+      height: auto;
+      display: block;
       font-size: 3.5rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
+      line-height: 1;
+      color: var(--primary);
+      margin: 0 auto 1rem;
       transition: transform 0.3s ease;
     }
     .skill-card:hover .skill-icon {
@@ -592,10 +625,10 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
-    .contact-info-card i {
+    .contact-info-card .icon {
       transition: transform 0.3s ease;
     }
-    .contact-info-card:hover i {
+    .contact-info-card:hover .icon {
       transform: scale(1.1);
     }
     .contact-form {
@@ -642,6 +675,9 @@
       font-size: 1.5rem;
       margin: 0 0.75rem;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .social-links a:hover {
       color: var(--secondary);
@@ -784,12 +820,12 @@
       transform: scale(1.1);
     }
     
-    .theme-toggle i {
+    .theme-toggle .icon {
       font-size: 1.1rem;
       transition: transform 0.3s ease;
     }
     
-    .theme-toggle:hover i {
+    .theme-toggle:hover .icon {
       transform: rotate(20deg);
     }
     
@@ -811,7 +847,193 @@
   </style>
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-home" viewBox="0 0 24 24">
+      <path d="M3 10.5 12 3l9 7.5"></path>
+      <path d="M5.5 9.5V21h13V9.5"></path>
+      <path d="M9.5 21v-6h5v6"></path>
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="4"></circle>
+      <path d="M5 20c1.7-3.4 4.1-5 7-5s5.3 1.6 7 5"></path>
+    </symbol>
+    <symbol id="icon-graduation" viewBox="0 0 24 24">
+      <path d="m2 9 10-4 10 4-10 4Z"></path>
+      <path d="M6 11.5V15c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-3.5"></path>
+      <path d="M20 10v5"></path>
+    </symbol>
+    <symbol id="icon-code" viewBox="0 0 24 24">
+      <path d="m8 8-4 4 4 4"></path>
+      <path d="m16 8 4 4-4 4"></path>
+      <path d="m13.5 5-3 14"></path>
+    </symbol>
+    <symbol id="icon-certificate" viewBox="0 0 24 24">
+      <circle cx="12" cy="9" r="4"></circle>
+      <path d="M9.5 13.5 8 21l4-2 4 2-1.5-7.5"></path>
+    </symbol>
+    <symbol id="icon-tools" viewBox="0 0 24 24">
+      <path d="m14.5 5.5 4 4"></path>
+      <path d="m6 18 8.5-8.5"></path>
+      <path d="m4 20 4.5-1.5L19 8a2.5 2.5 0 0 0-3.5-3.5L5 15l-1 5Z"></path>
+      <path d="m13 7 4 4"></path>
+    </symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24">
+      <path d="M9 6V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V6"></path>
+      <rect x="3" y="6" width="18" height="13" rx="2"></rect>
+      <path d="M3 11h18"></path>
+      <path d="M10 11v2h4v-2"></path>
+    </symbol>
+    <symbol id="icon-envelope" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+      <path d="m4 7 8 6 8-6"></path>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path class="icon-brand-fill" d="M15.2 2.5a8.8 8.8 0 1 0 6.3 13.8A9.6 9.6 0 0 1 15.2 2.5Z"></path>
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24">
+      <path d="M12 4v10"></path>
+      <path d="m8.5 10.5 3.5 3.5 3.5-3.5"></path>
+      <path d="M4 19h16"></path>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path class="icon-brand-fill" d="M12 20.5 4.8 13.7a4.9 4.9 0 0 1 6.9-7l.3.3.3-.3a4.9 4.9 0 0 1 6.9 7Z"></path>
+    </symbol>
+    <symbol id="icon-language" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3a15 15 0 0 1 0 18"></path>
+      <path d="M12 3a15 15 0 0 0 0 18"></path>
+    </symbol>
+    <symbol id="icon-university" viewBox="0 0 24 24">
+      <path d="m2 9 10-5 10 5"></path>
+      <path d="M4 10h16"></path>
+      <path d="M6 10v7"></path>
+      <path d="M10 10v7"></path>
+      <path d="M14 10v7"></path>
+      <path d="M18 10v7"></path>
+      <path d="M3 20h18"></path>
+    </symbol>
+    <symbol id="icon-laptop" viewBox="0 0 24 24">
+      <rect x="4" y="5" width="16" height="10" rx="1.5"></rect>
+      <path d="M2.5 18h19"></path>
+      <path d="m9.5 9-2 2 2 2"></path>
+      <path d="m14.5 9 2 2-2 2"></path>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24">
+      <circle cx="12" cy="8.5" r="4.5"></circle>
+      <path d="m9 13 1 8 2-1.5 2 1.5 1-8"></path>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path class="icon-brand-fill" d="m10 8.5 6 3.5-6 3.5Z"></path>
+    </symbol>
+    <symbol id="icon-gear" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3.2"></circle>
+      <path d="M12 3.5v2.2"></path>
+      <path d="M12 18.3v2.2"></path>
+      <path d="m5.9 5.9 1.5 1.5"></path>
+      <path d="m16.6 16.6 1.5 1.5"></path>
+      <path d="M3.5 12h2.2"></path>
+      <path d="M18.3 12h2.2"></path>
+      <path d="m5.9 18.1 1.5-1.5"></path>
+      <path d="m16.6 7.4 1.5-1.5"></path>
+    </symbol>
+    <symbol id="icon-server" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="5" rx="1.5"></rect>
+      <rect x="4" y="10" width="16" height="5" rx="1.5"></rect>
+      <rect x="4" y="16" width="16" height="4" rx="1.5"></rect>
+      <path d="M8 6.5h.01"></path>
+      <path d="M8 12.5h.01"></path>
+      <path d="M8 18h.01"></path>
+    </symbol>
+    <symbol id="icon-terminal" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+      <path d="m8 9-3 3 3 3"></path>
+      <path d="M11 15h5"></path>
+    </symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24">
+      <path d="m12 4 8 4-8 4-8-4Z"></path>
+      <path d="m4 12 8 4 8-4"></path>
+      <path d="m4 16 8 4 8-4"></path>
+    </symbol>
+    <symbol id="icon-bolt" viewBox="0 0 24 24">
+      <path class="icon-brand-fill" d="M13 2 5 13h5l-1 9 8-11h-5Z"></path>
+    </symbol>
+    <symbol id="icon-cube" viewBox="0 0 24 24">
+      <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"></path>
+      <path d="m12 12 8-4.5"></path>
+      <path d="m12 12-8-4.5"></path>
+      <path d="M12 12v9"></path>
+    </symbol>
+    <symbol id="icon-chip" viewBox="0 0 24 24">
+      <rect x="7" y="7" width="10" height="10" rx="2"></rect>
+      <path d="M9 1v4"></path>
+      <path d="M15 1v4"></path>
+      <path d="M9 19v4"></path>
+      <path d="M15 19v4"></path>
+      <path d="M1 9h4"></path>
+      <path d="M1 15h4"></path>
+      <path d="M19 9h4"></path>
+      <path d="M19 15h4"></path>
+    </symbol>
+    <symbol id="icon-layout" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+      <path d="M3 8h18"></path>
+      <path d="M7 20h10"></path>
+      <path d="M10 16h4"></path>
+    </symbol>
+    <symbol id="icon-cloud" viewBox="0 0 24 24">
+      <path d="M7.5 18a4.5 4.5 0 1 1 .8-8.9A5.5 5.5 0 0 1 19 11a3.5 3.5 0 1 1-.5 7Z"></path>
+    </symbol>
+    <symbol id="icon-atom" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="1.8"></circle>
+      <ellipse cx="12" cy="12" rx="8" ry="3.5"></ellipse>
+      <ellipse cx="12" cy="12" rx="8" ry="3.5" transform="rotate(60 12 12)"></ellipse>
+      <ellipse cx="12" cy="12" rx="8" ry="3.5" transform="rotate(120 12 12)"></ellipse>
+    </symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+      <path d="M8 20h8"></path>
+      <path d="M12 16v4"></path>
+    </symbol>
+    <symbol id="icon-branch" viewBox="0 0 24 24">
+      <circle cx="7" cy="6" r="2"></circle>
+      <circle cx="17" cy="18" r="2"></circle>
+      <circle cx="17" cy="6" r="2"></circle>
+      <path d="M7 8v8a2 2 0 0 0 2 2h6"></path>
+      <path d="M9 6h6"></path>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+      <path d="M8 11V8a4 4 0 1 1 8 0v3"></path>
+    </symbol>
+    <symbol id="icon-route" viewBox="0 0 24 24">
+      <circle cx="6" cy="18" r="2"></circle>
+      <circle cx="18" cy="6" r="2"></circle>
+      <path d="M8 18c3.5 0 3-6 6.5-6H16"></path>
+      <path d="M6 6h5a3 3 0 0 1 3 3v2"></path>
+    </symbol>
+    <symbol id="icon-network" viewBox="0 0 24 24">
+      <circle cx="12" cy="6" r="2"></circle>
+      <circle cx="6" cy="17" r="2"></circle>
+      <circle cx="18" cy="17" r="2"></circle>
+      <path d="M10.5 7.5 7.5 15"></path>
+      <path d="M13.5 7.5 16.5 15"></path>
+      <path d="M8 17h8"></path>
+    </symbol>
+    <symbol id="icon-ball" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3.5 9h17"></path>
+      <path d="M12 3a14 14 0 0 1 0 18"></path>
+      <path d="M12 3a14 14 0 0 0 0 18"></path>
+      <path d="M4.5 15h15"></path>
+    </symbol>
+    <symbol id="icon-send" viewBox="0 0 24 24">
+      <path d="M3 11.5 20 4l-5.5 16-3.5-6-7.5-2.5Z"></path>
+      <path d="M11 14 20 4"></path>
+    </symbol>
+  </svg>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#home">SHAD ARF</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -819,18 +1041,18 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav text-center align-items-center">
-          <li class="nav-item mx-2"><a class="nav-link" href="#home"><i class="fas fa-home me-1"></i>Home</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#about"><i class="fas fa-user me-1"></i>About</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#home"><svg class="icon me-1" aria-hidden="true"><use href="#icon-home"></use></svg>Home</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#about"><svg class="icon me-1" aria-hidden="true"><use href="#icon-user"></use></svg>About</a></li>
         
-          <li class="nav-item mx-2"><a class="nav-link" href="#education"><i class="fas fa-graduation-cap me-1"></i>Education</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#work"><i class="fas fa-code me-1"></i>Projects</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#courses"><i class="fas fa-certificate me-1"></i>Courses</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#skills"><i class="fas fa-tools me-1"></i>Skills</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#experience"><i class="fas fa-briefcase me-1"></i>Experience</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#education"><svg class="icon me-1" aria-hidden="true"><use href="#icon-graduation"></use></svg>Education</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#work"><svg class="icon me-1" aria-hidden="true"><use href="#icon-code"></use></svg>Projects</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#courses"><svg class="icon me-1" aria-hidden="true"><use href="#icon-certificate"></use></svg>Courses</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#skills"><svg class="icon me-1" aria-hidden="true"><use href="#icon-tools"></use></svg>Skills</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#experience"><svg class="icon me-1" aria-hidden="true"><use href="#icon-briefcase"></use></svg>Experience</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#contact"><svg class="icon me-1" aria-hidden="true"><use href="#icon-envelope"></use></svg>Contact</a></li>
           <li class="nav-item mx-2">
             <button class="btn btn-outline-secondary btn-sm theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
-              <i class="fas fa-moon" id="themeIcon"></i>
+              <svg class="icon fill" id="themeIcon" aria-hidden="true"><use href="#icon-moon"></use></svg>
             </button>
           </li>
         </ul>
@@ -886,10 +1108,10 @@
               download
               class="btn btn-primary btn-lg px-4 py-3"
             >
-              <i class="fas fa-download me-2"></i>Download CV
+              <svg class="icon me-2" aria-hidden="true"><use href="#icon-download"></use></svg>Download CV
             </a>
             <a href="#work" class="btn btn-outline-primary btn-lg px-4 py-3">
-              <i class="fas fa-briefcase me-2"></i>View Projects
+              <svg class="icon me-2" aria-hidden="true"><use href="#icon-briefcase"></use></svg>View Projects
             </a>
           </div>
         </div>
@@ -908,7 +1130,7 @@
   <section id="about" class="fade-in">
     <div class="container">
       <div class="about-content reveal">
-        <h2><i class="fas fa-user-circle me-3" style="color: var(--secondary);"></i>About Me</h2>
+        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-user"></use></svg>About Me</h2>
         <p>
           I’m <strong>Shad Arf</strong>, a dedicated backend web developer specializing in Laravel and API architecture. With a Bachelor’s degree in Computer Science from Soran
           University (2021–2025), I’ve honed my skills in PHP, database design, and server optimization. During my internship at Inforr LTD, I deepened my knowledge in DevOps, Laravel, and Vue.js. Outside of coding, I enjoy AI exploration, server optimization challenges, and a good game of chess.
@@ -918,13 +1140,13 @@
           <p><strong>— Sherwan Qurtas</strong> (University President, Soran University)</p>
         </div>
         <div class="mt-4">
-          <h4><i class="fas fa-heart me-2" style="color: var(--danger);"></i>Interests &amp; Hobbies</h4>
+          <h4><svg class="icon fill me-2" style="color: var(--danger);" aria-hidden="true"><use href="#icon-heart"></use></svg>Interests &amp; Hobbies</h4>
           <p>Technology ▪️ AI Exploration ▪️ Server Optimization ▪️ Chess ▪️ Web Development</p>
         </div>
 
         <div class="container my-5">
           <h3 class="mb-4 text-center">
-            <i class="fas fa-language me-2" style="color: var(--info);"></i>Languages
+            <svg class="icon me-2" style="color: var(--info);" aria-hidden="true"><use href="#icon-language"></use></svg>Languages
           </h3>
           
           <!-- Kurdish -->
@@ -982,7 +1204,7 @@
   <section id="education">
     <div class="container">
       <div class="section-title reveal">
-        <h2><i class="fas fa-university me-3" style="color: var(--secondary);"></i>Education</h2>
+        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-university"></use></svg>Education</h2>
         <p>My academic background</p>
       </div>
       <div class="row justify-content-center">
@@ -1001,13 +1223,13 @@
     <div class="container">
       <div class="section-title reveal">
         <h2>
-          <i class="fas fa-laptop-code me-3" style="color: var(--secondary);"></i>
+          <svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-laptop"></use></svg>
           Featured Projects
         </h2>
         <p>A selection of my key development projects</p>
       </div>
 
-      <!-- Project 1: Smart Distribution Management System -->
+      <!-- Project 1: pertwk -->
       <div class="project-card reveal">
         <div class="row g-4 align-items-center">
           <div class="col-md-6">
@@ -1015,40 +1237,111 @@
           </div>
           <div class="col-md-6">
             <div class="project-info">
-              <h3>Smart Distribution Management System</h3>
+              <h3>PERTWK</h3>
               <div class="d-flex gap-2 mb-3 flex-wrap">
                 <span class="badge bg-primary">Laravel</span>
-                <span class="badge bg-secondary">PHPUnit</span>
-                <span class="badge bg-success">Vue.js</span>
-                <span class="badge bg-info">API</span>
+                <span class="badge bg-secondary">PHP</span>
+                <span class="badge bg-success">Nuxt 4</span>
+                <span class="badge bg-info">Vue 3</span>
+                <span class="badge bg-warning">Pinia</span>
+                <span class="badge bg-dark">Tailwind CSS</span>
+                <span class="badge bg-primary">MySQL</span>
+                <span class="badge bg-success">REST API</span>
               </div>
               <div class="mb-3">
                 <p><strong>Role:</strong> Full-Stack</p>
-                <p><strong>Team Size:</strong> Solo</p>
-                <p><strong>Duration:</strong> 9 months (Started August 1, 2024)</p>
-                <p><strong>Type:</strong> Academic Project</p>
+                <p><strong>Team Size:</strong> 2 Members</p>
+                <p><strong>Type:</strong> Startup Project</p>
               </div>
               <p class="description">
-                Developed a fully normalized and scalable multi‑store book distribution system.
-                Designed a 28‑table schema for relational integrity, built secure RESTful APIs
-                with Laravel (CRUD + role‑based access), and crafted a Vue.js front end with
-                dynamic forms and validations.
+                Developed a multi-tenant bookstore platform using Laravel 10, Nuxt 4, and Vue 3.
+                Built and integrated the REST API backend, SSR customer storefront, and admin
+                dashboard for tenant-aware store operations.
               </p>
               <ul class="mb-0">
-                <li>Backend & database completed in 3 months; 28‑table schema for efficient queries</li>
-                <li>100% PHPUnit coverage: 350+ tests for logic, authorization, and edge cases</li>
-                <li>Integrated FIB online payments with dynamic transaction &amp; refund handling</li>
-                <li>Role‑based access: Admin, Manager, Member, Customer</li>
+                <li>Catalog and inventory management across isolated tenant stores</li>
+                <li>Order workflows, authentication, and role-based access control</li>
+                <li>SSR storefront for customers plus a dedicated admin dashboard</li>
+                <li>Laravel API integrated with Nuxt 4, Vue 3, Pinia, and MySQL</li>
               </ul>
               <div class="d-flex gap-3 mt-3">
-                <a href="#" class="btn btn-primary" target="_blank">Details Coming Soon</a>
+                <a href="https://pertwk.krd" class="btn btn-primary" target="_blank">Visit Live</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Project 2: Uber Post Delivery -->
+      <!-- Project 2: Tavyar -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center flex-md-row-reverse">
+          <div class="col-md-6">
+            <!-- Optional image -->
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>Tavyar</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-primary">Laravel 12</span>
+                <span class="badge bg-secondary">REST API</span>
+                <span class="badge bg-success">Swagger</span>
+                <span class="badge bg-info">Admin Dashboard</span>
+                <span class="badge bg-warning">AI Proxy</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Backend Developer</p>
+              </div>
+              <p class="description">
+                Developed a Laravel 12 chatbot backend that manages multiple bot configurations
+                and exposes REST APIs for chat interactions. Built a secure AI proxy layer that
+                forwards frontend requests to an external LLM provider.
+              </p>
+              <ul class="mb-0">
+                <li>Supports PDF-based instruction uploads for bot configuration</li>
+                <li>Applies request validation and rate limiting for secure API usage</li>
+                <li>Includes Swagger API documentation and an admin dashboard</li>
+                <li>Designed for multi-bot management through a centralized backend</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: 71Bite -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <!-- Optional image -->
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>71Bite</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-primary">Laravel</span>
+                <span class="badge bg-secondary">PHP</span>
+                <span class="badge bg-success">MySQL</span>
+                <span class="badge bg-info">Blade</span>
+                <span class="badge bg-warning">Vite</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Full-Stack Developer</p>
+              </div>
+              <p class="description">
+                Developed a restaurant web application focused on online food ordering and
+                customer engagement using Laravel, PHP, MySQL, Blade, and Vite.
+              </p>
+              <ul class="mb-0">
+                <li>Built customer flows for browsing menus, managing carts, and placing orders</li>
+                <li>Implemented table reservations, feedback submission, and protected user actions</li>
+                <li>Created an admin area for orders, reservations, feedback, and user accounts</li>
+                <li>Used Laravel MVC with routing, controllers, models, middleware, and migrations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Uber Post Delivery -->
       <div class="project-card reveal">
         <div class="row g-4 align-items-center flex-md-row-reverse">
           <div class="col-md-6">
@@ -1082,7 +1375,7 @@
         </div>
       </div>
 
-      <!-- Project 3: University Student Enrollment Management System -->
+      <!-- Project 5: University Student Enrollment Management System -->
       <div class="project-card reveal">
         <div class="row g-4 align-items-center">
           <div class="col-md-6">
@@ -1118,7 +1411,7 @@
         </div>
       </div>
 
-      <!-- Project 4: The Soran University Career Development Center -->
+      <!-- Project 6: The Soran University Career Development Center -->
       <div class="project-card reveal">
         <div class="row g-4 align-items-center flex-md-row-reverse">
           <div class="col-md-6">
@@ -1157,44 +1450,42 @@
         </div>
       </div>
 
-      <!-- Project 5: Chatbot -->
+      <!-- Project 7: Solar Sales Project -->
       <div class="project-card reveal">
         <div class="row g-4 align-items-center">
           <div class="col-md-6">
-            <img src="chatbot.jpg" alt="Chatbot" class="img-fluid" />
+            <!-- Optional image -->
           </div>
           <div class="col-md-6">
             <div class="project-info">
-              <h3>Chatbot</h3>
+              <h3>Solar Sales Project</h3>
               <div class="d-flex gap-2 mb-3 flex-wrap">
-                <span class="badge bg-warning">JavaScript</span>
-                <span class="badge bg-primary">PHP</span>
-                <span class="badge bg-success">Bootstrap</span>
+                <span class="badge bg-secondary">PHP</span>
+                <span class="badge bg-primary">Laravel 12</span>
+                <span class="badge bg-info">Blade</span>
+                <span class="badge bg-success">MySQL</span>
+                <span class="badge bg-warning">Vite</span>
+                <span class="badge bg-dark">Tailwind CSS</span>
               </div>
               <div class="mb-3">
                 <p><strong>Role:</strong> Full-Stack Developer</p>
-                <p><strong>Team Size:</strong> Solo</p>
-                <p><strong>Duration:</strong> 6 months (Started February 1, 2023)</p>
-                <p><strong>Type:</strong> Personal Project</p>
               </div>
               <p class="description">
-                A PHP‑based chatbot for Soran University: real‑time messaging, authentication, and message history.
-                Presented at the University Showcase as my first major PHP project.
+                Built a Laravel-based solar sales management system to handle inventory, sales,
+                purchases, customers, suppliers, and financial records in one platform.
               </p>
-              <div class="d-flex gap-3">
-                <a href="https://github.com/shad-arf/chat_bot" class="btn btn-primary" target="_blank">
-                  Open Source
-                </a>
-                <a href="https://chatbot.shadarf.dev" class="btn btn-outline-primary" target="_blank">
-                  Visit Live
-                </a>
-              </div>
+              <ul class="mb-0">
+                <li>Implemented dashboard reporting for daily business visibility</li>
+                <li>Added low-stock tracking and inventory adjustment workflows</li>
+                <li>Built profit monitoring and PDF invoice export features</li>
+                <li>Designed to centralize sales, purchasing, and record management</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Project 6: Pi Organization Portal -->
+      <!-- Project 8: Pi Organization Portal -->
       <div class="project-card reveal">
         <div class="row g-4 align-items-center flex-md-row-reverse">
           <div class="col-md-6">
@@ -1236,13 +1527,50 @@
         </div>
       </div>
 
+      <!-- Project 9: Chatbot -->
+      <div class="project-card reveal">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <img src="chatbot.jpg" alt="Chatbot" class="img-fluid" />
+          </div>
+          <div class="col-md-6">
+            <div class="project-info">
+              <h3>Chatbot</h3>
+              <div class="d-flex gap-2 mb-3 flex-wrap">
+                <span class="badge bg-warning">JavaScript</span>
+                <span class="badge bg-primary">PHP</span>
+                <span class="badge bg-success">Bootstrap</span>
+              </div>
+              <div class="mb-3">
+                <p><strong>Role:</strong> Full-Stack Developer</p>
+                <p><strong>Team Size:</strong> Solo</p>
+                <p><strong>Duration:</strong> 6 months (Started February 1, 2023)</p>
+                <p><strong>Type:</strong> Personal Project</p>
+              </div>
+              <p class="description">
+                A PHP‑based chatbot for Soran University: real‑time messaging, authentication, and message history.
+                Presented at the University Showcase as my first major PHP project.
+              </p>
+              <div class="d-flex gap-3">
+                <a href="https://github.com/shad-arf/chat_bot" class="btn btn-primary" target="_blank">
+                  Open Source
+                </a>
+                <a href="https://chatbot.shadarf.dev" class="btn btn-outline-primary" target="_blank">
+                  Visit Live
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <section id="courses" class="py-5" style="background: var(--bg-secondary);">
     <div class="container">
       <div class="section-title reveal">
-        <h2><i class="fas fa-award me-3" style="color: var(--secondary);"></i>Courses &amp; Certifications</h2>
+        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-award"></use></svg>Courses &amp; Certifications</h2>
         <p>Laracasts tracks &plus; other self-learning milestones</p>
       </div>
 
@@ -1250,7 +1578,7 @@
         <!-- Course Card -->
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-danger"></i>Laravel 8 From Scratch</h5>
+            <h5 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel 8 From Scratch</h5>
             <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
             <p class="small text-muted">38 lessons • Completed 2023-07</p>
             <p class="mb-0">Built a clone project while following along; cemented fundamentals of routing, Eloquent, queues, and tests.</p>
@@ -1259,7 +1587,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-danger"></i>Laravel API Master Class</h5>
+            <h5 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel API Master Class</h5>
             <p class="small mb-2">Instructor: <strong>Jeremey McPeak</strong></p>
             <p class="small text-muted">19 lessons • Completed 2024-07</p>
             <p class="mb-0">Deep-dive into stateless auth, rate-limiting, API testing, and versioning; foundation for web applicaiton back-ends.</p>
@@ -1268,7 +1596,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-success"></i>Vue 3 From Scratch</h5>
+            <h5 class="mb-2"><svg class="icon fill me-2 text-success" aria-hidden="true"><use href="#icon-play"></use></svg>Vue 3 From Scratch</h5>
             <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
             <p class="small text-muted">43 lessons • Completed 2024-08</p>
             <p class="mb-0">Mastered reactivity, Composition API, Pinia state, and SPA routing.</p>
@@ -1277,7 +1605,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-primary"></i>Write Code That’s Easy to Maintain</h5>
+            <h5 class="mb-2"><svg class="icon fill me-2 text-primary" aria-hidden="true"><use href="#icon-play"></use></svg>Write Code That’s Easy to Maintain</h5>
             <p class="small mb-2">Instructor: <strong>Katerina Trajchevska</strong></p>
             <p class="small text-muted">14 lessons • Completed 2024-08</p>
             <p class="mb-0">Learned SOLID principles, refactoring pattern.</p>
@@ -1286,7 +1614,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-warning"></i>Laravel Security Through Examples</h5>
+            <h5 class="mb-2"><svg class="icon fill me-2 text-warning" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel Security Through Examples</h5>
             <p class="small mb-2">Instructor: <strong>Stephen Rees-Carter</strong></p>
             <p class="small text-muted">16 lessons • Completed 2024-8</p>
             <p class="mb-0">Practiced XSS, CSRF, SQLi mitigation &amp; OAuth.</p>
@@ -1295,7 +1623,7 @@
 
     <div class="col-12 col-md-6 col-lg-4 reveal">
         <div class="skill-card h-100">
-          <h5 class="mb-2"><i class="fas fa-play-circle me-2 text-danger"></i>Code Katas with PHPUnit</h5>
+          <h5 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Code Katas with PHPUnit</h5>
           <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
           <p class="small text-muted">9 mini-episodes • Completed 2024-09</p>
           <p class="mb-0">Practice-driven TDD exercises using PHPUnit—each episode is a focused Kata to build workflow habits, refactoring skills, and test-first thinking.</p>
@@ -1311,76 +1639,76 @@
   <section id="skills">
     <div class="container">
       <div class="section-title reveal">
-        <h2><i class="fas fa-cogs me-3" style="color: var(--secondary);"></i>Technical Expertise</h2>
+        <h2><i class="fa-solid fa-gears me-3" style="color: var(--secondary);"></i>Technical Expertise</h2>
         <p>The tools and technologies I use to build efficient solutions</p>
       </div>
       <div class="row g-4">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-laravel skill-icon"></i>
+            <i class="fa-brands fa-laravel skill-icon" aria-hidden="true"></i>
             <h5>Laravel</h5>
             <p>Expert in backend architecture & API development</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-php skill-icon"></i>
+            <i class="fa-brands fa-php skill-icon" aria-hidden="true"></i>
             <h5>PHP</h5>
             <p>Strong foundation in server-side scripting</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-vuejs skill-icon"></i>
+            <i class="fa-brands fa-vuejs skill-icon" aria-hidden="true"></i>
             <h5>Vue.js</h5>
             <p>Building reactive user interfaces</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-js skill-icon"></i>
+            <i class="fa-brands fa-js skill-icon" aria-hidden="true"></i>
             <h5>JavaScript</h5>
             <p>Frontend scripting and dynamic behavior</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fas fa-cogs skill-icon"></i>
+            <i class="fa-solid fa-cube skill-icon" aria-hidden="true"></i>
             <h5>C#</h5>
             <p>Building robust Console applications</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-python skill-icon"></i>
+            <i class="fa-brands fa-python skill-icon" aria-hidden="true"></i>
             <h5>Python</h5>
             <p>Data analysis & machine learning basics</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-css3-alt skill-icon"></i>
+            <i class="fa-brands fa-css3-alt skill-icon" aria-hidden="true"></i>
             <h5>Tailwind & Bootstrap</h5>
             <p>Responsive design & utility-first frameworks</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fas fa-cloud skill-icon"></i>
+            <i class="fa-solid fa-cloud skill-icon" aria-hidden="true"></i>
             <h5>Cloud & DevOps</h5>
             <p>Contabo VPS, Cloudflare, server optimization</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-react skill-icon"></i>
+            <i class="fa-brands fa-react skill-icon" aria-hidden="true"></i>
             <h5>React</h5>
             <p>Building component-based UIs </p>
           </div>
         </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
   <div class="skill-card">
-    <i class="fab fa-ubuntu skill-icon"></i>
+    <i class="fa-brands fa-ubuntu skill-icon" aria-hidden="true"></i>
     <h5>Ubuntu</h5>
     <p>Linux distribution for servers and desktops</p>
   </div>
@@ -1388,14 +1716,14 @@
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fab fa-github skill-icon"></i>
+            <i class="fa-brands fa-github skill-icon" aria-hidden="true"></i>
             <h5>Git & GitHub</h5>
             <p>Version control & collaboration</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fas fa-lock skill-icon"></i>
+            <i class="fa-solid fa-lock skill-icon" aria-hidden="true"></i>
             <h5>Security Best Practices</h5>
             <p>CSRF protection, input validation, hardening</p>
           </div>
@@ -1408,7 +1736,7 @@
   <section id="experience">
     <div class="container">
       <div class="section-title reveal">
-        <h2><i class="fas fa-route me-3" style="color: var(--secondary);"></i>Professional Journey</h2>
+        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-route"></use></svg>Professional Journey</h2>
         <p>My career path and key milestones</p>
       </div>
       <div class="timeline reveal">
@@ -1474,16 +1802,16 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="social-links mb-4">
-        <a href="https://linkedin.com/in/shad-arf" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/shad-arf" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-      </div>
+        <div class="social-links mb-4">
+          <a href="https://linkedin.com/in/shad-arf" target="_blank">
+          <svg class="icon brand" aria-hidden="true"><use href="#icon-network"></use></svg>
+          </a>
+          <a href="https://github.com/shad-arf" target="_blank">
+          <svg class="icon brand" aria-hidden="true"><use href="#icon-branch"></use></svg>
+          </a>
+          <a href="#" target="_blank"><svg class="icon brand" aria-hidden="true"><use href="#icon-ball"></use></svg></a>
+          <a href="#" target="_blank"><svg class="icon brand" aria-hidden="true"><use href="#icon-send"></use></svg></a>
+        </div>
       <p class="mb-0">&copy; 2025 Shad Arf. All rights reserved.</p>
     </div>
   </footer>
