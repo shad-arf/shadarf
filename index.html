@@ -121,6 +121,7 @@
       --bg-tertiary: #f1f5f9;
       --text-primary: #1f2937;
       --text-secondary: #6b7280;
+      --interactive-strong: #1d4ed8;
       --border-color: rgba(59, 130, 246, 0.1);
     }
     
@@ -138,6 +139,7 @@
       --bg-tertiary: #0f172a;
       --text-primary: #f9fafb;
       --text-secondary: #d1d5db;
+      --interactive-strong: #93c5fd;
       --border-color: rgba(99, 102, 241, 0.2);
       
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
@@ -228,12 +230,12 @@
       border-radius: 8px;
     }
     .nav-link:hover {
-      color: var(--secondary) !important;
+      color: var(--interactive-strong) !important;
       background: rgba(59, 130, 246, 0.1);
       transform: translateY(-2px);
     }
     .nav-link[aria-current="location"] {
-      color: var(--secondary) !important;
+      color: var(--interactive-strong) !important;
       background: rgba(59, 130, 246, 0.12);
     }
     .nav-link::before {
@@ -243,7 +245,7 @@
       left: 50%;
       width: 0;
       height: 2px;
-      background: var(--secondary);
+      background: var(--interactive-strong);
       transition: all 0.3s ease;
       transform: translateX(-50%);
     }
@@ -631,9 +633,11 @@
     .skill-card:hover .skill-icon {
       transform: scale(1.1) rotate(5deg);
     }
-    .skill-card h5 {
+    .skill-card h3 {
       margin-bottom: 0.5rem;
       color: var(--text-primary);
+      font-size: 1.25rem;
+      font-weight: 600;
     }
     .skill-card p {
       color: var(--text-secondary);
@@ -755,10 +759,11 @@
       box-shadow: var(--shadow-lg);
       border-color: var(--secondary);
     }
-    .contact-info-card h5 {
+    .contact-info-card h3 {
       color: var(--text-primary);
       margin-bottom: 0.5rem;
       font-weight: 600;
+      font-size: 1.25rem;
     }
     .contact-info-card .icon {
       transition: transform 0.3s ease;
@@ -1304,7 +1309,7 @@
           <p><strong>— Sherwan Qurtas</strong> (University President, Soran University)</p>
         </div>
         <div class="mt-4">
-          <h4><svg class="icon fill me-2" style="color: var(--danger);" aria-hidden="true"><use href="#icon-heart"></use></svg>Interests &amp; Hobbies</h4>
+          <h3><svg class="icon fill me-2" style="color: var(--danger);" aria-hidden="true"><use href="#icon-heart"></use></svg>Interests &amp; Hobbies</h3>
           <p>Technology ▪️ AI Exploration ▪️ Server Optimization ▪️ Chess ▪️ Web Development</p>
         </div>
 
@@ -1775,7 +1780,7 @@
         <!-- Course Card -->
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel 8 From Scratch</h5>
+            <h3 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel 8 From Scratch</h3>
             <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
             <p class="small text-muted">38 lessons • Completed 2023-07</p>
             <p class="mb-0">Built a clone project while following along; cemented fundamentals of routing, Eloquent, queues, and tests.</p>
@@ -1784,7 +1789,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel API Master Class</h5>
+            <h3 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel API Master Class</h3>
             <p class="small mb-2">Instructor: <strong>Jeremey McPeak</strong></p>
             <p class="small text-muted">19 lessons • Completed 2024-07</p>
             <p class="mb-0">Deep-dive into stateless auth, rate-limiting, API testing, and versioning; foundation for web applicaiton back-ends.</p>
@@ -1793,7 +1798,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><svg class="icon fill me-2 text-success" aria-hidden="true"><use href="#icon-play"></use></svg>Vue 3 From Scratch</h5>
+            <h3 class="mb-2"><svg class="icon fill me-2 text-success" aria-hidden="true"><use href="#icon-play"></use></svg>Vue 3 From Scratch</h3>
             <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
             <p class="small text-muted">43 lessons • Completed 2024-08</p>
             <p class="mb-0">Mastered reactivity, Composition API, Pinia state, and SPA routing.</p>
@@ -1802,7 +1807,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><svg class="icon fill me-2 text-primary" aria-hidden="true"><use href="#icon-play"></use></svg>Write Code That’s Easy to Maintain</h5>
+            <h3 class="mb-2"><svg class="icon fill me-2 text-primary" aria-hidden="true"><use href="#icon-play"></use></svg>Write Code That’s Easy to Maintain</h3>
             <p class="small mb-2">Instructor: <strong>Katerina Trajchevska</strong></p>
             <p class="small text-muted">14 lessons • Completed 2024-08</p>
             <p class="mb-0">Learned SOLID principles, refactoring pattern.</p>
@@ -1811,7 +1816,7 @@
 
         <div class="col-12 col-md-6 col-lg-4 reveal">
           <div class="skill-card h-100">
-            <h5 class="mb-2"><svg class="icon fill me-2 text-warning" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel Security Through Examples</h5>
+            <h3 class="mb-2"><svg class="icon fill me-2 text-warning" aria-hidden="true"><use href="#icon-play"></use></svg>Laravel Security Through Examples</h3>
             <p class="small mb-2">Instructor: <strong>Stephen Rees-Carter</strong></p>
             <p class="small text-muted">16 lessons • Completed 2024-8</p>
             <p class="mb-0">Practiced XSS, CSRF, SQLi mitigation &amp; OAuth.</p>
@@ -1820,7 +1825,7 @@
 
     <div class="col-12 col-md-6 col-lg-4 reveal">
         <div class="skill-card h-100">
-          <h5 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Code Katas with PHPUnit</h5>
+          <h3 class="mb-2"><svg class="icon fill me-2 text-danger" aria-hidden="true"><use href="#icon-play"></use></svg>Code Katas with PHPUnit</h3>
           <p class="small mb-2">Instructor: <strong>Jeffrey Way</strong></p>
           <p class="small text-muted">9 mini-episodes • Completed 2024-09</p>
           <p class="mb-0">Practice-driven TDD exercises using PHPUnit—each episode is a focused Kata to build workflow habits, refactoring skills, and test-first thinking.</p>
@@ -1843,70 +1848,70 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">Lv</span>
-            <h5>Laravel</h5>
+            <h3>Laravel</h3>
             <p>Expert in backend architecture & API development</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">PHP</span>
-            <h5>PHP</h5>
+            <h3>PHP</h3>
             <p>Strong foundation in server-side scripting</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">Vue</span>
-            <h5>Vue.js</h5>
+            <h3>Vue.js</h3>
             <p>Building reactive user interfaces</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">JS</span>
-            <h5>JavaScript</h5>
+            <h3>JavaScript</h3>
             <p>Frontend scripting and dynamic behavior</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">C#</span>
-            <h5>C#</h5>
+            <h3>C#</h3>
             <p>Building robust Console applications</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">Py</span>
-            <h5>Python</h5>
+            <h3>Python</h3>
             <p>Data analysis & machine learning basics</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">CSS</span>
-            <h5>Tailwind & Bootstrap</h5>
+            <h3>Tailwind & Bootstrap</h3>
             <p>Responsive design & utility-first frameworks</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">Ops</span>
-            <h5>Cloud & DevOps</h5>
+            <h3>Cloud & DevOps</h3>
             <p>Contabo VPS, Cloudflare, server optimization</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">Rct</span>
-            <h5>React</h5>
+            <h3>React</h3>
             <p>Building component-based UIs </p>
           </div>
         </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
   <div class="skill-card">
     <span class="skill-icon skill-icon-text" aria-hidden="true">Ubu</span>
-    <h5>Ubuntu</h5>
+    <h3>Ubuntu</h3>
     <p>Linux distribution for servers and desktops</p>
   </div>
 </div>
@@ -1914,14 +1919,14 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">Git</span>
-            <h5>Git & GitHub</h5>
+            <h3>Git & GitHub</h3>
             <p>Version control & collaboration</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
             <span class="skill-icon skill-icon-text" aria-hidden="true">Sec</span>
-            <h5>Security Best Practices</h5>
+            <h3>Security Best Practices</h3>
             <p>CSRF protection, input validation, hardening</p>
           </div>
         </div>
@@ -2002,7 +2007,7 @@
         <div class="col-12 col-md-6 col-lg-3 reveal">
           <div class="contact-info-card p-4 h-100">
             <svg class="icon mb-3" style="color: var(--secondary); font-size: 2rem;" aria-hidden="true"><use href="#icon-ball"></use></svg>
-            <h5>Website</h5>
+            <h3>Website</h3>
             <p class="mb-2">Portfolio and project overview</p>
             <a href="https://shadarf.dev" target="_blank" rel="noopener noreferrer">shadarf.dev</a>
           </div>
@@ -2010,7 +2015,7 @@
         <div class="col-12 col-md-6 col-lg-3 reveal">
           <div class="contact-info-card p-4 h-100">
             <svg class="icon brand mb-3" style="color: var(--secondary); font-size: 2rem;" aria-hidden="true"><use href="#icon-network"></use></svg>
-            <h5>LinkedIn</h5>
+            <h3>LinkedIn</h3>
             <p class="mb-2">Professional profile and updates</p>
             <a href="https://linkedin.com/in/shad-arf" target="_blank" rel="noopener noreferrer">linkedin.com/in/shad-arf</a>
           </div>
@@ -2018,7 +2023,7 @@
         <div class="col-12 col-md-6 col-lg-3 reveal">
           <div class="contact-info-card p-4 h-100">
             <svg class="icon brand mb-3" style="color: var(--secondary); font-size: 2rem;" aria-hidden="true"><use href="#icon-branch"></use></svg>
-            <h5>GitHub</h5>
+            <h3>GitHub</h3>
             <p class="mb-2">Open-source work and code samples</p>
             <a href="https://github.com/shad-arf" target="_blank" rel="noopener noreferrer">github.com/shad-arf</a>
           </div>
@@ -2026,7 +2031,7 @@
         <div class="col-12 col-md-6 col-lg-3 reveal">
           <div class="contact-info-card p-4 h-100">
             <svg class="icon mb-3" style="color: var(--secondary); font-size: 2rem;" aria-hidden="true"><use href="#icon-home"></use></svg>
-            <h5>Location</h5>
+            <h3>Location</h3>
             <p class="mb-2">Available for remote and on-site work</p>
             <p class="mb-0">Erbil, Kurdistan Region, Iraq</p>
           </div>
