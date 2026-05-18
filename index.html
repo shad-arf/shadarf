@@ -37,10 +37,7 @@
   <meta name="twitter:image" content="https://shadarf.dev/shad.jpg" />
   <meta name="twitter:image:alt" content="Portrait of Shad Arf, Laravel backend developer" />
   <link rel="icon" type="image/jpeg" href="shad.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="preload" as="image" href="shad.jpg" />
   <script type="application/ld+json">
     {
@@ -98,17 +95,6 @@
     rel="stylesheet"
   />
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  />
-
   <style>
     :root {
       --primary: #1e3a8a;
@@ -164,7 +150,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
 
     body {
@@ -172,21 +158,49 @@
       color: var(--text-primary);
       line-height: 1.6;
       overflow-x: hidden;
+      scroll-padding-top: 6rem;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     a {
-      text-decoration: none;
-      color: inherit;
+      color: var(--primary);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
     }
     a:hover {
       color: var(--secondary);
+    }
+    .navbar-brand,
+    .nav-link,
+    .btn,
+    .social-links a,
+    .theme-toggle {
+      text-decoration: none;
+    }
+    :where(a, button, input, textarea, select, summary):focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      box-shadow: none !important;
+    }
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3.5rem;
+      z-index: 2000;
+      padding: 0.85rem 1.15rem;
+      border-radius: 0.75rem;
+      background: var(--dark);
+      color: var(--bg-primary);
+      font-weight: 600;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 1rem;
     }
 
     /* Navbar */
     .navbar {
       background: var(--bg-primary) !important;
-      backdrop-filter: blur(20px);
       box-shadow: var(--shadow-lg);
       padding: 1rem 0;
       transition: all 0.3s ease;
@@ -217,6 +231,10 @@
       color: var(--secondary) !important;
       background: rgba(59, 130, 246, 0.1);
       transform: translateY(-2px);
+    }
+    .nav-link[aria-current="location"] {
+      color: var(--secondary) !important;
+      background: rgba(59, 130, 246, 0.12);
     }
     .nav-link::before {
       content: '';
@@ -312,6 +330,7 @@
     .hero h1 {
       font-size: 3.5rem;
       font-weight: 700;
+      color: var(--primary);
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -321,7 +340,7 @@
     }
     .hero p {
       font-size: 1.25rem;
-      color: #555;
+      color: var(--text-secondary);
       margin-bottom: 2rem;
     }
     .hero-img {
@@ -349,6 +368,7 @@
       margin-bottom: 1rem;
       position: relative;
       display: inline-block;
+      color: var(--primary);
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -400,6 +420,8 @@
       padding: 5rem 0;
       background: var(--bg-primary);
       position: relative;
+      content-visibility: auto;
+      contain-intrinsic-size: 900px;
     }
     #about::before {
       content: '';
@@ -420,6 +442,7 @@
     }
     .about-content h2 {
       margin-bottom: 2rem;
+      color: var(--primary);
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -491,6 +514,8 @@
       padding: 5rem 0;
       background: var(--bg-secondary);
       position: relative;
+      content-visibility: auto;
+      contain-intrinsic-size: 1800px;
     }
     .project-card {
       background: var(--bg-primary);
@@ -517,6 +542,11 @@
       box-shadow: var(--shadow-xl);
       border-color: var(--secondary);
     }
+    .project-card:focus-within {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--secondary);
+    }
     .project-card img {
       border-radius: 15px;
       width: 100%;
@@ -531,6 +561,7 @@
     }
     .project-info h3 {
       margin-bottom: 1rem;
+      color: var(--primary);
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -558,10 +589,11 @@
     #skills {
       padding: 5rem 0;
       background: var(--bg-primary);
+      content-visibility: auto;
+      contain-intrinsic-size: 1000px;
     }
     .skill-card {
       background: var(--bg-primary);
-      backdrop-filter: blur(10px);
       padding: 2rem;
       border-radius: 20px;
       box-shadow: var(--shadow-md);
@@ -577,14 +609,24 @@
       border-color: var(--secondary);
     }
     .skill-icon {
-      width: auto;
-      height: auto;
-      display: block;
-      font-size: 3.5rem;
+      width: 4.25rem;
+      height: 4.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.2rem;
+      font-size: 1rem;
       line-height: 1;
       color: var(--primary);
       margin: 0 auto 1rem;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.14), rgba(30, 58, 138, 0.08));
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      font-weight: 700;
+      letter-spacing: 0.03em;
       transition: transform 0.3s ease;
+    }
+    .skill-icon-text {
+      text-transform: uppercase;
     }
     .skill-card:hover .skill-icon {
       transform: scale(1.1) rotate(5deg);
@@ -602,6 +644,8 @@
     #experience {
       padding: 5rem 0;
       background: var(--bg-secondary);
+      content-visibility: auto;
+      contain-intrinsic-size: 1200px;
     }
     .timeline {
       position: relative;
@@ -663,10 +707,11 @@
     #education {
       padding: 5rem 0;
       background: var(--bg-primary);
+      content-visibility: auto;
+      contain-intrinsic-size: 700px;
     }
     .education-card {
       background: var(--bg-primary);
-      backdrop-filter: blur(10px);
       border-radius: 20px;
       box-shadow: var(--shadow-lg);
       padding: 3rem;
@@ -686,15 +731,20 @@
     .education-card p {
       color: var(--text-secondary);
     }
+    #courses {
+      content-visibility: auto;
+      contain-intrinsic-size: 1100px;
+    }
 
     /* Contact Section */
     #contact {
       padding: 5rem 0;
       background: var(--bg-secondary);
+      content-visibility: auto;
+      contain-intrinsic-size: 1200px;
     }
     .contact-info-card {
       background: var(--bg-primary);
-      backdrop-filter: blur(10px);
       border: 1px solid var(--border-color);
       transition: all 0.3s ease;
       text-align: center;
@@ -720,7 +770,6 @@
       max-width: 700px;
       margin: auto;
       background: var(--bg-primary);
-      backdrop-filter: blur(10px);
       padding: 3rem;
       border-radius: 20px;
       box-shadow: var(--shadow-xl);
@@ -929,9 +978,56 @@
       z-index: 15;
       pointer-events: auto;
     }
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .hero-img,
+      .skill-icon {
+        animation: none !important;
+      }
+      .hero-img:hover,
+      .project-card:hover,
+      .project-card:focus-within,
+      .skill-card:hover,
+      .contact-info-card:hover,
+      .btn:hover,
+      .theme-toggle:hover,
+      .nav-link:hover {
+        transform: none;
+      }
+      .btn::before,
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+    }
+    @media (forced-colors: active) {
+      .hero h1,
+      .section-title h2,
+      .about-content h2,
+      .project-info h3 {
+        background: none;
+        color: CanvasText;
+        -webkit-text-fill-color: currentColor;
+      }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
     <symbol id="icon-home" viewBox="0 0 24 24">
       <path d="M3 10.5 12 3l9 7.5"></path>
@@ -974,6 +1070,17 @@
     </symbol>
     <symbol id="icon-moon" viewBox="0 0 24 24">
       <path class="icon-brand-fill" d="M15.2 2.5a8.8 8.8 0 1 0 6.3 13.8A9.6 9.6 0 0 1 15.2 2.5Z"></path>
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2.5"></path>
+      <path d="M12 19.5V22"></path>
+      <path d="M4.93 4.93 6.7 6.7"></path>
+      <path d="M17.3 17.3 19.07 19.07"></path>
+      <path d="M2 12h2.5"></path>
+      <path d="M19.5 12H22"></path>
+      <path d="m4.93 19.07 1.77-1.77"></path>
+      <path d="m17.3 6.7 1.77-1.77"></path>
     </symbol>
     <symbol id="icon-download" viewBox="0 0 24 24">
       <path d="M12 4v10"></path>
@@ -1118,15 +1225,15 @@
       <path d="M11 14 20 4"></path>
     </symbol>
   </svg>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" aria-label="Primary navigation">
     <div class="container">
       <a class="navbar-brand" href="#home">SHAD ARF</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav text-center align-items-center">
-          <li class="nav-item mx-2"><a class="nav-link" href="#home"><svg class="icon me-1" aria-hidden="true"><use href="#icon-home"></use></svg>Home</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#home" aria-current="location"><svg class="icon me-1" aria-hidden="true"><use href="#icon-home"></use></svg>Home</a></li>
           <li class="nav-item mx-2"><a class="nav-link" href="#about"><svg class="icon me-1" aria-hidden="true"><use href="#icon-user"></use></svg>About</a></li>
         
           <li class="nav-item mx-2"><a class="nav-link" href="#education"><svg class="icon me-1" aria-hidden="true"><use href="#icon-graduation"></use></svg>Education</a></li>
@@ -1136,7 +1243,7 @@
           <li class="nav-item mx-2"><a class="nav-link" href="#experience"><svg class="icon me-1" aria-hidden="true"><use href="#icon-briefcase"></use></svg>Experience</a></li>
           <li class="nav-item mx-2"><a class="nav-link" href="#contact"><svg class="icon me-1" aria-hidden="true"><use href="#icon-envelope"></use></svg>Contact</a></li>
           <li class="nav-item mx-2">
-            <button class="btn btn-outline-secondary btn-sm theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+            <button class="btn btn-outline-secondary btn-sm theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
               <svg class="icon fill" id="themeIcon" aria-hidden="true"><use href="#icon-moon"></use></svg>
             </button>
           </li>
@@ -1144,7 +1251,7 @@
       </div>
     </div>
   </nav>
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
   <!-- Hero Section -->
   <header id="home" class="hero">
     <div class="container">
@@ -1157,7 +1264,7 @@
           </p>
           <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
             <a
-              href="Shad_arf_cv.pdf"
+              href="shad_arf.pdf"
               download
               class="btn btn-primary btn-lg px-4 py-3"
             >
@@ -1184,10 +1291,10 @@
   </header>
 
   <!-- About Section -->
-  <section id="about" class="fade-in">
+  <section id="about" class="fade-in" aria-labelledby="about-heading">
     <div class="container">
       <div class="about-content reveal">
-        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-user"></use></svg>About Me</h2>
+        <h2 id="about-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-user"></use></svg>About Me</h2>
         <p>
           I’m <strong>Shad Arf</strong>, a dedicated backend web developer specializing in Laravel and API architecture. With a Bachelor’s degree in Computer Science from Soran
           University (2021–2025), I’ve honed my skills in PHP, database design, and server optimization. During my internship at Inforr LTD, I deepened my knowledge in DevOps, Laravel, and Vue.js. Outside of coding, I enjoy AI exploration, server optimization challenges, and a good game of chess.
@@ -1219,6 +1326,7 @@
             class="progress-bar bg-success"
             role="progressbar"
             style="width: 100%"
+            aria-label="Kurdish language proficiency"
             aria-valuenow="100"
             aria-valuemin="0"
             aria-valuemax="100"
@@ -1242,6 +1350,7 @@
             class="progress-bar bg-info"
             role="progressbar"
             style="width: 70%"
+            aria-label="English language proficiency"
             aria-valuenow="70"
             aria-valuemin="0"
             aria-valuemax="100"
@@ -1258,10 +1367,10 @@
 
 
   <!-- Education Section -->
-  <section id="education">
+  <section id="education" aria-labelledby="education-heading">
     <div class="container">
       <div class="section-title reveal">
-        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-university"></use></svg>Education</h2>
+        <h2 id="education-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-university"></use></svg>Education</h2>
         <p>My academic background</p>
       </div>
       <div class="row justify-content-center">
@@ -1276,10 +1385,10 @@
     </div>
   </section>
   <!-- Projects Section -->
-  <section id="work">
+  <section id="work" aria-labelledby="work-heading">
     <div class="container">
       <div class="section-title reveal">
-        <h2>
+        <h2 id="work-heading">
           <svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-laptop"></use></svg>
           Featured Projects
         </h2>
@@ -1444,6 +1553,7 @@
               height="833"
               loading="lazy"
               decoding="async"
+              fetchpriority="low"
             />
           </div>
           <div class="col-md-6">
@@ -1486,6 +1596,8 @@
               class="img-fluid"
               loading="lazy"
               decoding="async"
+              fetchpriority="low"
+              referrerpolicy="no-referrer"
             />
           </div>
           <div class="col-md-6">
@@ -1564,6 +1676,7 @@
               height="678"
               loading="lazy"
               decoding="async"
+              fetchpriority="low"
             />
           </div>
           <div class="col-md-6">
@@ -1614,6 +1727,7 @@
               height="1280"
               loading="lazy"
               decoding="async"
+              fetchpriority="low"
             />
           </div>
           <div class="col-md-6">
@@ -1650,10 +1764,10 @@
     </div>
   </section>
 
-  <section id="courses" class="py-5" style="background: var(--bg-secondary);">
+  <section id="courses" class="py-5" style="background: var(--bg-secondary);" aria-labelledby="courses-heading">
     <div class="container">
       <div class="section-title reveal">
-        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-award"></use></svg>Courses &amp; Certifications</h2>
+        <h2 id="courses-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-award"></use></svg>Courses &amp; Certifications</h2>
         <p>Laracasts tracks &plus; other self-learning milestones</p>
       </div>
 
@@ -1719,79 +1833,79 @@
     </div>
   </section>
   <!-- Skills Section -->
-  <section id="skills">
+  <section id="skills" aria-labelledby="skills-heading">
     <div class="container">
       <div class="section-title reveal">
-        <h2><i class="fa-solid fa-gears me-3" style="color: var(--secondary);"></i>Technical Expertise</h2>
+        <h2 id="skills-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-tools"></use></svg>Technical Expertise</h2>
         <p>The tools and technologies I use to build efficient solutions</p>
       </div>
       <div class="row g-4">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-laravel skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">Lv</span>
             <h5>Laravel</h5>
             <p>Expert in backend architecture & API development</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-php skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">PHP</span>
             <h5>PHP</h5>
             <p>Strong foundation in server-side scripting</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-vuejs skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">Vue</span>
             <h5>Vue.js</h5>
             <p>Building reactive user interfaces</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-js skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">JS</span>
             <h5>JavaScript</h5>
             <p>Frontend scripting and dynamic behavior</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-solid fa-cube skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">C#</span>
             <h5>C#</h5>
             <p>Building robust Console applications</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-python skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">Py</span>
             <h5>Python</h5>
             <p>Data analysis & machine learning basics</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-css3-alt skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">CSS</span>
             <h5>Tailwind & Bootstrap</h5>
             <p>Responsive design & utility-first frameworks</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-solid fa-cloud skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">Ops</span>
             <h5>Cloud & DevOps</h5>
             <p>Contabo VPS, Cloudflare, server optimization</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-react skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">Rct</span>
             <h5>React</h5>
             <p>Building component-based UIs </p>
           </div>
         </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
   <div class="skill-card">
-    <i class="fa-brands fa-ubuntu skill-icon" aria-hidden="true"></i>
+    <span class="skill-icon skill-icon-text" aria-hidden="true">Ubu</span>
     <h5>Ubuntu</h5>
     <p>Linux distribution for servers and desktops</p>
   </div>
@@ -1799,14 +1913,14 @@
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-brands fa-github skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">Git</span>
             <h5>Git & GitHub</h5>
             <p>Version control & collaboration</p>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
           <div class="skill-card">
-            <i class="fa-solid fa-lock skill-icon" aria-hidden="true"></i>
+            <span class="skill-icon skill-icon-text" aria-hidden="true">Sec</span>
             <h5>Security Best Practices</h5>
             <p>CSRF protection, input validation, hardening</p>
           </div>
@@ -1816,10 +1930,10 @@
   </section>
 
   <!-- Experience Section -->
-  <section id="experience">
+  <section id="experience" aria-labelledby="experience-heading">
     <div class="container">
       <div class="section-title reveal">
-        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-route"></use></svg>Professional Journey</h2>
+        <h2 id="experience-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-route"></use></svg>Professional Journey</h2>
         <p>My career path and key milestones</p>
       </div>
       <div class="timeline reveal">
@@ -1878,10 +1992,10 @@
       </div>
     </div>
   </section>
-  <section id="contact">
+  <section id="contact" aria-labelledby="contact-heading">
     <div class="container">
       <div class="section-title reveal">
-        <h2><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-envelope"></use></svg>Contact</h2>
+        <h2 id="contact-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-envelope"></use></svg>Contact</h2>
         <p>Connect with Shad Arf for Laravel backend development, API work, and production web systems.</p>
       </div>
       <div class="row g-4 justify-content-center">
@@ -1921,7 +2035,7 @@
       <div class="text-center mt-5 reveal">
         <p class="mb-3">Need more detail about experience, projects, or technical background?</p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="Shad_arf_cv.pdf" class="btn btn-primary px-4 py-3" download>
+          <a href="shad_arf.pdf" class="btn btn-primary px-4 py-3" download>
             <svg class="icon me-2" aria-hidden="true"><use href="#icon-download"></use></svg>Download CV
           </a>
           <a href="#work" class="btn btn-outline-primary px-4 py-3">
@@ -1959,81 +2073,176 @@
   <!-- Enhanced JavaScript -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Intersection Observer for Reveal Animations
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-              // Add stagger effect for skill cards
-              if (entry.target.classList.contains('skill-card')) {
-                const delay = Math.random() * 300;
-                setTimeout(() => {
-                  entry.target.style.opacity = '1';
-                  entry.target.style.transform = 'translateY(0)';
-                }, delay);
-              }
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-      );
+      const root = document.documentElement;
+      const navbar = document.querySelector(".navbar");
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const inPageLinks = document.querySelectorAll('a[href^="#"]');
+      const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+      const sections = document.querySelectorAll("main section[id], main header[id]");
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIconUse = document.querySelector("#themeIcon use");
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      const idle = window.requestIdleCallback || ((callback) => window.setTimeout(callback, 1));
 
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-      // Smooth scroll with offset for fixed navbar
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          const offset = 80; // Account for fixed navbar
-          const targetPosition = target.offsetTop - offset;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth"
-          });
-        });
-      });
-
-      // Navbar scroll effect
-      let lastScrollTop = 0;
-      window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
+      const updateThemeToggle = (theme) => {
+        if (!themeToggle) {
+          return;
         }
-        
-        lastScrollTop = scrollTop;
-      });
+        const isDark = theme === "dark";
+        const nextTheme = isDark ? "light" : "dark";
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+        themeToggle.setAttribute("title", `Switch to ${nextTheme} mode`);
+        if (themeIconUse) {
+          themeIconUse.setAttribute("href", isDark ? "#icon-sun" : "#icon-moon");
+        }
+        if (themeColorMeta) {
+          themeColorMeta.setAttribute("content", isDark ? "#111827" : "#1e3a8a");
+        }
+      };
 
-      // Add loading animation to skill cards
-      const skillCards = document.querySelectorAll('.skill-card');
-      if (skillCards.length > 0) {
-        requestAnimationFrame(() => {
-          skillCards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            setTimeout(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
-            }, 100 * index);
-          });
+      const getStoredTheme = () => {
+        try {
+          return localStorage.getItem("theme-preference");
+        } catch (error) {
+          return null;
+        }
+      };
+
+      const storeTheme = (theme) => {
+        try {
+          localStorage.setItem("theme-preference", theme);
+        } catch (error) {
+          // Ignore storage failures and keep the active theme only for this session.
+        }
+      };
+
+      const applyTheme = (theme) => {
+        root.setAttribute("data-theme", theme);
+        updateThemeToggle(theme);
+      };
+
+      const initialTheme = getStoredTheme() || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      applyTheme(initialTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          applyTheme(nextTheme);
+          storeTheme(nextTheme);
         });
       }
 
-      // Keep crawlable hero text in HTML, then enhance it with a typing animation.
-      const subtitle = document.querySelector('.typed-text');
-      if (subtitle) {
+      if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+        );
+
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      }
+
+      const focusTarget = (target) => {
+        if (!target.hasAttribute("tabindex")) {
+          target.setAttribute("tabindex", "-1");
+        }
+        target.focus({ preventScroll: true });
+      };
+
+      inPageLinks.forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const selector = this.getAttribute("href");
+          if (!selector || selector === "#") {
+            return;
+          }
+
+          const target = document.querySelector(selector);
+          if (!target) {
+            return;
+          }
+
+          e.preventDefault();
+          const offset = navbar ? navbar.offsetHeight + 16 : 80;
+          const targetPosition = Math.max(target.getBoundingClientRect().top + window.pageYOffset - offset, 0);
+          window.scrollTo({
+            top: targetPosition,
+            behavior: prefersReducedMotion ? "auto" : "smooth"
+          });
+          window.setTimeout(() => focusTarget(target), prefersReducedMotion ? 0 : 400);
+          if (window.history && typeof window.history.replaceState === "function") {
+            window.history.replaceState(null, "", selector);
+          }
+        });
+      });
+
+      const updateNavigationState = () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (navbar) {
+          navbar.classList.toggle("scrolled", scrollTop > 100);
+        }
+
+        let currentSection = sections[0] ? sections[0].id : "";
+        const navOffset = navbar ? navbar.offsetHeight + 48 : 128;
+
+        sections.forEach((section) => {
+          if (scrollTop >= section.offsetTop - navOffset) {
+            currentSection = section.id;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          if (link.getAttribute("href") === `#${currentSection}`) {
+            link.setAttribute("aria-current", "location");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      updateNavigationState();
+      window.addEventListener("scroll", updateNavigationState, { passive: true });
+
+      idle(() => {
+        const skillCards = document.querySelectorAll(".skill-card");
+        if (skillCards.length > 0 && !prefersReducedMotion) {
+          requestAnimationFrame(() => {
+            skillCards.forEach((card, index) => {
+              card.style.opacity = "0";
+              card.style.transform = "translateY(30px)";
+              card.style.transition = "all 0.6s ease";
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+              }, 100 * index);
+            });
+          });
+        }
+
+        const subtitle = document.querySelector(".typed-text");
+        if (!subtitle) {
+          return;
+        }
+
         const roles = [
           "Laravel Backend Developer in Erbil, Iraq",
           "API Developer and Laravel Specialist",
           "Vue, Nuxt, and DevOps-Focused Engineer"
         ];
+
+        if (prefersReducedMotion) {
+          subtitle.textContent = roles[0];
+          return;
+        }
+
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -2041,12 +2250,7 @@
         const typeWriter = () => {
           const currentRole = roles[roleIndex];
 
-          if (isDeleting) {
-            charIndex -= 1;
-          } else {
-            charIndex += 1;
-          }
-
+          charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
           subtitle.textContent = currentRole.substring(0, Math.max(charIndex, 0));
 
           if (!isDeleting && charIndex === currentRole.length) {
@@ -2060,38 +2264,35 @@
             roleIndex = (roleIndex + 1) % roles.length;
           }
 
-          const delay = isDeleting ? 45 : 85;
-          setTimeout(typeWriter, delay);
+          setTimeout(typeWriter, isDeleting ? 45 : 85);
         };
 
         subtitle.textContent = roles[0];
         setTimeout(typeWriter, 1200);
-      }
+      });
 
-      // Progress bar animation
-      const progressBars = document.querySelectorAll('.progress-bar');
+      const progressBars = document.querySelectorAll(".progress-bar");
       const animateProgressBars = () => {
-        progressBars.forEach(bar => {
+        progressBars.forEach((bar) => {
           const width = bar.style.width;
-          bar.style.width = '0%';
+          bar.style.width = "0%";
           setTimeout(() => {
             bar.style.width = width;
           }, 500);
         });
       };
-      
-      // Trigger progress animation when about section is visible
-      const aboutSection = document.querySelector('#about');
-      const aboutObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateProgressBars();
-            aboutObserver.unobserve(entry.target);
-          }
+
+      const aboutSection = document.querySelector("#about");
+      if (aboutSection && !prefersReducedMotion && "IntersectionObserver" in window) {
+        const aboutObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateProgressBars();
+              aboutObserver.unobserve(entry.target);
+            }
+          });
         });
-      });
-      
-      if (aboutSection) {
+
         aboutObserver.observe(aboutSection);
       }
     });

@@ -1,10 +1,9 @@
-</div>
-<div class="clear"></div>
-      <!-- FOOTER -->
-      <div id="footer">
-        <p class="footer_name">Javier Latorre CV 2015</p>
-      </div>
-		</div>
+        </main>
+        <div class="clear"></div>
+        <footer id="footer">
+            <p class="footer_name">Shad Arf Portfolio</p>
+        </footer>
+    </div>
 </body>
 
 </html>

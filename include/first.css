@@ -130,11 +130,14 @@ blockquote, p , a, li {
 	font-family: 'Lato', Helvetica, sans-serif;
 	font-weight: 300;
 	font-size: 15px;
-	color: #000;
+	color: #111827;
 }
 
-a:focus { 
-    outline: none;
+a:focus-visible,
+button:focus-visible,
+[tabindex="-1"]:focus-visible {
+	outline: 3px solid #f59e0b;
+	outline-offset: 3px;
 }
 
 ul {
@@ -156,8 +159,29 @@ ul {
 /* Containers size */
 
 #main_container {
-	width: 960px;
+	width: min(960px, 100%);
 	margin: 0 auto;
+}
+
+#main-content:focus {
+	outline: none;
+}
+
+.skip-link {
+	position: absolute;
+	left: 16px;
+	top: -56px;
+	z-index: 2000;
+	padding: 12px 16px;
+	border-radius: 12px;
+	background: #111827;
+	color: #ffffff;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.skip-link:focus {
+	top: 16px;
 }
 	#header {
 		height: 130px;
@@ -256,9 +280,12 @@ ul {
 	.header_menu a.no_border{
 		border-left: none;
 	}
-		.header_menu a:hover {
+	.header_menu a:hover {
 			color: #837c9a;
 		}
+	.header_menu a[aria-current="page"] {
+		font-weight: 700;
+	}
 		
 /* LEFT NAV */
 
@@ -278,7 +305,7 @@ ul {
 		width: 210px;
 		height: 240px;
 		margin:10px;
-		background: url(//s3-us-west-2.amazonaws.com/s.cdpn.io/86033/profile/profile-512_3.jpg) 100% /210px no-repeat;
+		background: #111827;
 	}
 
 .hello_content,
@@ -392,6 +419,16 @@ ul {
 .footer_name {
 	font-style: italic;
 	margin-top: 20px;
+	text-align: center;
+}
+
+.social-media-list li {
+	padding-left: 0;
+	text-indent: 0;
+}
+
+.social-media-list li::before {
+	content: none;
 }
 
 /* Profile Content */
