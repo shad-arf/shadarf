@@ -94,6 +94,10 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  />
 
   <style>
     :root {
@@ -626,6 +630,28 @@
       font-weight: 700;
       letter-spacing: 0.03em;
       transition: transform 0.3s ease;
+    }
+    .skill-icon-logo {
+      gap: 0.45rem;
+    }
+    .skill-icon-logo i {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .skill-icon-logo.skill-icon-pair i {
+      font-size: 1.45rem;
+    }
+    .skill-icon-logo .icon {
+      width: 2rem;
+      height: 2rem;
+    }
+    .skill-icon-logo .pinia-logo {
+      width: 2rem;
+      height: 2rem;
+      display: block;
+    }
+    .skill-icon-logo .logo-tone {
+      color: var(--text-primary);
     }
     .skill-icon-text {
       text-transform: uppercase;
@@ -1240,12 +1266,11 @@
         <ul class="navbar-nav text-center align-items-center">
           <li class="nav-item mx-2"><a class="nav-link" href="#home" aria-current="location"><svg class="icon me-1" aria-hidden="true"><use href="#icon-home"></use></svg>Home</a></li>
           <li class="nav-item mx-2"><a class="nav-link" href="#about"><svg class="icon me-1" aria-hidden="true"><use href="#icon-user"></use></svg>About</a></li>
-        
           <li class="nav-item mx-2"><a class="nav-link" href="#education"><svg class="icon me-1" aria-hidden="true"><use href="#icon-graduation"></use></svg>Education</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#work"><svg class="icon me-1" aria-hidden="true"><use href="#icon-code"></use></svg>Projects</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#courses"><svg class="icon me-1" aria-hidden="true"><use href="#icon-certificate"></use></svg>Courses</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="#skills"><svg class="icon me-1" aria-hidden="true"><use href="#icon-tools"></use></svg>Skills</a></li>
           <li class="nav-item mx-2"><a class="nav-link" href="#experience"><svg class="icon me-1" aria-hidden="true"><use href="#icon-briefcase"></use></svg>Experience</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#work"><svg class="icon me-1" aria-hidden="true"><use href="#icon-code"></use></svg>Projects</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#skills"><svg class="icon me-1" aria-hidden="true"><use href="#icon-tools"></use></svg>Skills</a></li>
+          <li class="nav-item mx-2"><a class="nav-link" href="#courses"><svg class="icon me-1" aria-hidden="true"><use href="#icon-certificate"></use></svg>Courses</a></li>
           <li class="nav-item mx-2"><a class="nav-link" href="#contact"><svg class="icon me-1" aria-hidden="true"><use href="#icon-envelope"></use></svg>Contact</a></li>
           <li class="nav-item mx-2">
             <button class="btn btn-outline-secondary btn-sm theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
@@ -1301,12 +1326,26 @@
       <div class="about-content reveal">
         <h2 id="about-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-user"></use></svg>About Me</h2>
         <p>
-          I’m <strong>Shad Arf</strong>, a dedicated backend web developer specializing in Laravel and API architecture. With a Bachelor’s degree in Computer Science from Soran
-          University (2021–2025), I’ve honed my skills in PHP, database design, and server optimization. During my internship at Inforr LTD, I deepened my knowledge in DevOps, Laravel, and Vue.js. Outside of coding, I enjoy AI exploration, server optimization challenges, and a good game of chess.
+          I’m <strong>Shad Arf</strong>, a backend web developer from Turaq - Erbil specializing in Laravel, API architecture, and production support. With a Bachelor’s degree in
+          Computer Science from Soran University (2021–2025), where I graduated with second rank in the university, I’ve built a strong foundation in PHP, database design,
+          and server optimization. During my internship at Inforr LTD, I deepened my knowledge in DevOps, Laravel, and Vue.js while shipping custom APIs and deployment-focused work.
+        </p>
+        <p>
+          My experience also includes volunteer development work for Soran University and CDC, startup leadership at Pi Organization, and technical support for enterprise
+          systems. I enjoy solving backend problems, improving system reliability, exploring AI tools, and refining developer workflows.
         </p>
         <div class="testimonial">
           <p>"Shad, you can find a job very easily, and I'm not worried about your employment status."</p>
           <p><strong>— Sherwan Qurtas</strong> (University President, Soran University)</p>
+        </div>
+        <div class="mt-4">
+          <h3><svg class="icon me-2" style="color: var(--info);" aria-hidden="true"><use href="#icon-award"></use></svg>Quick Facts</h3>
+          <ul class="mb-0">
+            <li>Current focus: Laravel backends, REST APIs, and production system support</li>
+            <li>Location: Turaq - Erbil, Iraq</li>
+            <li>Achievement: Second rank at Soran University</li>
+            <li>Languages: Kurdish (Native), English (Intermediate), Arabic (Beginner)</li>
+          </ul>
         </div>
         <div class="mt-4">
           <h3><svg class="icon fill me-2" style="color: var(--danger);" aria-hidden="true"><use href="#icon-heart"></use></svg>Interests &amp; Hobbies</h3>
@@ -1370,7 +1409,6 @@
     </div>
   </section>
 
-
   <!-- Education Section -->
   <section id="education" aria-labelledby="education-heading">
     <div class="container">
@@ -1384,7 +1422,72 @@
             <h3>Bachelor of Computer Science</h3>
             <p><strong>Soran University</strong> (2021 – 2025)</p>
             <p>Graduated: July 2025</p>
+            <p>Achievement: Second rank in the university</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" aria-labelledby="experience-heading">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2 id="experience-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-route"></use></svg>Professional Journey</h2>
+        <p>My career path and key milestones</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-date">Since July 1, 2026</div>
+          <h3>Technical Support Specialist</h3>
+          <h4>Dwrandaz</h4>
+          <ul>
+            <li>✅ Provided technical support for enterprise management systems, including POS and ERP platforms</li>
+            <li>✅ Diagnosed software issues and managed SQL database backup workflows</li>
+            <li>✅ Bridged communication between non-technical clients and the development team</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2024 – Sep 2024</div>
+          <h3>Internship</h3>
+          <h4>Inforr LTD</h4>
+          <ul>
+            <li>✅ Studied Laravel, DevOps, Vue.js, and AI</li>
+            <li>✅ Created custom APIs and integrated them into projects</li>
+            <li>✅ Deployed sample applications on Contabo VPS</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2020 – 2024</div>
+          <h3>CEO &amp; Web Developer</h3>
+          <h4>Pi Organization</h4>
+          <ul>
+            <li>✅ Led the startup, making key decisions</li>
+            <li>✅ Designed and built the official portal (Laravel, Blade)</li>
+            <li>✅ Managed content, user roles, and reporting modules</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Oct 2023 – Apr 2024</div>
+          <h3>Volunteer Developer</h3>
+          <h4>CDC Soran University</h4>
+          <ul>
+            <li>✅ Built and maintained CDC’s online platform</li>
+            <li>✅ Implemented new modules and feature enhancements</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Aug 2023 – Oct 2023</div>
+          <h3>Volunteer Full-Stack Developer</h3>
+          <h4>Soran University</h4>
+          <ul>
+            <li>✅ Maintained and improved the production registration system</li>
+            <li>✅ Handled real-time data entry and reporting for 1,500+ students</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1768,7 +1871,144 @@
 
     </div>
   </section>
+  <!-- Skills Section -->
+  <section id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2 id="skills-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-tools"></use></svg>Technical Expertise</h2>
+        <p>The tools and technologies I use to build efficient solutions</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-laravel-original colored"></i></span>
+            <h3>Laravel</h3>
+            <p>Expert in backend architecture & API development</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-php-plain colored"></i></span>
+            <h3>PHP</h3>
+            <p>Strong foundation in server-side scripting</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-mysql-plain colored"></i></span>
+            <h3>MySQL</h3>
+            <p>Database design, querying, and data modeling</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-vuejs-plain colored"></i></span>
+            <h3>Vue.js</h3>
+            <p>Building reactive user interfaces</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-nuxtjs-plain colored"></i></span>
+            <h3>Nuxt.js</h3>
+            <p>Building SSR and full-stack Vue applications</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true">
+              <svg class="pinia-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 38c10-9 8-20-1-31C12 16 10 29 14 36c3 5 5 6 8 2Z" fill="#77C34F"/>
+                <path d="M42 38c-10-9-8-20 1-31 9 9 11 22 7 29-3 5-5 6-8 2Z" fill="#77C34F"/>
+                <path d="M32 40c11 0 17-10 15-21C45 8 36 3 32 3s-13 5-15 16c-2 11 4 21 15 21Z" fill="#F8C64E"/>
+                <path d="M20 45c0 7 5 12 12 12s12-5 12-12c0-6-5-11-12-11s-12 5-12 11Z" fill="#2F8F3D"/>
+              </svg>
+            </span>
+            <h3>Pinia</h3>
+            <p>State management for Vue and Nuxt applications</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-javascript-plain colored"></i></span>
+            <h3>JavaScript</h3>
+            <p>Frontend scripting and dynamic behavior</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-typescript-plain colored"></i></span>
+            <h3>TypeScript</h3>
+            <p>Typed JavaScript for maintainable frontend code</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-csharp-plain colored"></i></span>
+            <h3>C#</h3>
+            <p>Building robust Console applications</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-python-plain colored"></i></span>
+            <h3>Python</h3>
+            <p>Data analysis & machine learning basics</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo skill-icon-pair" aria-hidden="true">
+              <i class="devicon-tailwindcss-plain colored"></i>
+              <i class="devicon-bootstrap-plain colored"></i>
+            </span>
+            <h3>Tailwind & Bootstrap</h3>
+            <p>Responsive design & utility-first frameworks</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-cloud"></use></svg></span>
+            <h3>Cloud & DevOps</h3>
+            <p>Contabo VPS, Cloudflare, server optimization</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-react-original colored"></i></span>
+            <h3>React</h3>
+            <p>Building component-based UIs </p>
+          </div>
+        </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+  <div class="skill-card">
+    <span class="skill-icon skill-icon-logo" aria-hidden="true"><i class="devicon-ubuntu-plain colored"></i></span>
+    <h3>Ubuntu</h3>
+    <p>Linux distribution for servers and desktops</p>
+  </div>
+</div>
 
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo skill-icon-pair" aria-hidden="true">
+              <i class="devicon-git-plain colored"></i>
+              <i class="devicon-github-original logo-tone"></i>
+            </span>
+            <h3>Git & GitHub</h3>
+            <p>Version control & collaboration</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <span class="skill-icon skill-icon-logo" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg></span>
+            <h3>Security Best Practices</h3>
+            <p>CSRF protection, input validation, hardening</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Courses Section -->
   <section id="courses" class="py-5" style="background: var(--bg-secondary);" aria-labelledby="courses-heading">
     <div class="container">
       <div class="section-title reveal">
@@ -1837,166 +2077,8 @@
       </div>
     </div>
   </section>
-  <!-- Skills Section -->
-  <section id="skills" aria-labelledby="skills-heading">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2 id="skills-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-tools"></use></svg>Technical Expertise</h2>
-        <p>The tools and technologies I use to build efficient solutions</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">Lv</span>
-            <h3>Laravel</h3>
-            <p>Expert in backend architecture & API development</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">PHP</span>
-            <h3>PHP</h3>
-            <p>Strong foundation in server-side scripting</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">Vue</span>
-            <h3>Vue.js</h3>
-            <p>Building reactive user interfaces</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">JS</span>
-            <h3>JavaScript</h3>
-            <p>Frontend scripting and dynamic behavior</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">C#</span>
-            <h3>C#</h3>
-            <p>Building robust Console applications</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">Py</span>
-            <h3>Python</h3>
-            <p>Data analysis & machine learning basics</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">CSS</span>
-            <h3>Tailwind & Bootstrap</h3>
-            <p>Responsive design & utility-first frameworks</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">Ops</span>
-            <h3>Cloud & DevOps</h3>
-            <p>Contabo VPS, Cloudflare, server optimization</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">Rct</span>
-            <h3>React</h3>
-            <p>Building component-based UIs </p>
-          </div>
-        </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-  <div class="skill-card">
-    <span class="skill-icon skill-icon-text" aria-hidden="true">Ubu</span>
-    <h3>Ubuntu</h3>
-    <p>Linux distribution for servers and desktops</p>
-  </div>
-</div>
 
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">Git</span>
-            <h3>Git & GitHub</h3>
-            <p>Version control & collaboration</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 reveal">
-          <div class="skill-card">
-            <span class="skill-icon skill-icon-text" aria-hidden="true">Sec</span>
-            <h3>Security Best Practices</h3>
-            <p>CSRF protection, input validation, hardening</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" aria-labelledby="experience-heading">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2 id="experience-heading"><svg class="icon me-3" style="color: var(--secondary);" aria-hidden="true"><use href="#icon-route"></use></svg>Professional Journey</h2>
-        <p>My career path and key milestones</p>
-      </div>
-      <div class="timeline reveal">
-        <!-- Timeline Item: Current -->
-       
-      
-       <!-- Timeline Item: Jan 2024 – Mar 2024 -->
-        <div class="timeline-item">
-          <div class="timeline-date">jul 2024 – sep 2024</div>
-          <h3>Internship</h3>
-          <h4>Inforr LTD</h4>
-          <ul>
-            <li>✅ Studied Laravel, DevOps, Vue.js, and AI</li>
-            <li>✅ Created custom APIs and integrated them into projects</li>
-            <li>✅ Deployed sample applications on Contabo VPS</li>
-          </ul>
-        </div>
-      
-        <!-- Timeline Item: 2020 – 2024 -->
-        <div class="timeline-item">
-          <div class="timeline-date">2020 – 2024</div>
-          <h3>CEO &amp; Web Developer</h3>
-          <h4>Pi Organization</h4>
-          <ul>
-            <li>✅ Led the startup, making key decisions</li>
-            <li>✅ Designed and built the official portal (Laravel, Blade)</li>
-            <li>✅ Managed content, user roles, and reporting modules</li>
-          </ul>
-        </div>
-      
-        <!-- Timeline Item: Jan 2024 – Apr 2024 -->
-        <div class="timeline-item">
-          <div class="timeline-date">Oct 2023 – Apr 2024</div>
-          <h3>Volunteer Developer</h3>
-          <h4>CDC Soran University</h4>
-          <ul>
-            <li>✅ Built and maintained CDC’s online platform</li>
-            <li>✅ Implemented new modules and feature enhancements</li>
-          </ul>
-        </div>
-
-        <!-- Timeline Item: Jan 2023 – Nov 2023 -->
-        <div class="timeline-item">
-          <div class="timeline-date">Aug 2023 – Oct 2023</div>
-          <h3>Volunteer Full-Stack Developer</h3>
-          <h4>Soran University</h4>
-          <ul>
-            <li>✅ Maintained and improved the production registration system</li>
-            <li>✅ Handled real-time data entry and reporting for 1,500+ students</li>
-          </ul>
-        </div>
-
-      
-
-       
-      </div>
-    </div>
-  </section>
+  <!-- Contact Section -->
   <section id="contact" aria-labelledby="contact-heading">
     <div class="container">
       <div class="section-title reveal">

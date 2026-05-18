@@ -75,9 +75,9 @@ if ($currentPage === '' || $currentPage === 'index.php') {
             <section class="hello_content mt-6" aria-labelledby="intro-heading">
                 <h2 id="intro-heading" class="text-2xl font-semibold">Hello</h2>
                 <p class="text-gray-800">
-                    I'm Shad Arf, a backend developer. I've created various software; some are up and
-                    running, some are still in progress, and some are just ideas for now. Studying
-                    programming fills me with pride as I pursue a field that I love.
+                    I'm Shad Arf, a backend web developer focused on Laravel, APIs, and production
+                    systems. I graduated in Computer Science from Soran University and have experience
+                    across internships, volunteer development, startup work, and technical support.
                 </p>
             </section>
 
@@ -88,7 +88,7 @@ if ($currentPage === '' || $currentPage === 'index.php') {
                 <p class="text-purple-700">Email:</p>
                 <p><a href="mailto:shadarf779@gmail.com">shadarf779@gmail.com</a></p>
                 <p class="text-purple-700">Address:</p>
-                <p>Khabat</p>
+                <p>Turaq - Erbil</p>
             </section>
 
             <section class="mt-6" aria-labelledby="social-heading">
